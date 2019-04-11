@@ -1,7 +1,7 @@
 {
   "name": "drywall",
-  "version": "1.0.0",
-  "description": "drywall React component",
+  "version": "0.1.0",
+  "description": "drywall component library",
   "main": "lib/index.js",
   "module": "es/index.js",
   "sideEffects": false,
@@ -51,9 +51,12 @@
     "react-test-renderer": "^16.8.6"
   },
   "author": "brians@zillowgroup.com",
-  "homepage": "",
+  "homepage": "https://github.com/zillow/drywall",
   "license": "MIT",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zillow/drywall.git"
+  },
   "keywords": [
     "react-component"
   ]
