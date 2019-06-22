@@ -13,9 +13,6 @@ export const BUTTON_SIZES = {
     lg: 'lg',
 };
 
-/**
- * See also [`TextButton`](#textbutton)
- */
 const Button = styled.button`
     ${props => props.theme && props.theme.ns && props.theme.ns().Button};
 `;
