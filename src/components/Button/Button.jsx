@@ -23,7 +23,7 @@ Button.propTypes = {
     /** Inverse colors for use on dark or colored backgrounds */
     inverse: PropTypes.bool,
     /** The size of the button */
-    size: PropTypes.oneOf(Object.keys(BUTTON_SIZES)),
+    buttonSize: PropTypes.oneOf(Object.keys(BUTTON_SIZES)),
     /** The type of the button */
     buttonType: PropTypes.oneOf(Object.keys(BUTTON_TYPES)),
     /**
@@ -39,7 +39,7 @@ Button.propTypes = {
 Button.defaultProps = {
     fluid: false,
     inverse: false,
-    size: BUTTON_SIZES.md,
+    buttonSize: BUTTON_SIZES.md,
     buttonType: BUTTON_TYPES.secondary,
     as: 'button',
 };

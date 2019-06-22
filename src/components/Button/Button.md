@@ -19,9 +19,9 @@
 
 #### Button sizes
 ```jsx
-<Button size="sm">Small button</Button>{' '}
-<Button size="md">Medium button</Button>{' '}
-<Button size="lg">Large button</Button>
+<Button buttonSize="sm">Small button</Button>{' '}
+<Button buttonSize="md">Medium button</Button>{' '}
+<Button buttonSize="lg">Large button</Button>
 ```
 
 #### Inversed buttons for colored backgrounds or background images

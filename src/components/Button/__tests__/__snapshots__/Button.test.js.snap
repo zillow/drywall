@@ -7,7 +7,6 @@ exports[`<Button> can render with theme 1`] = `
 
 <button
   className="c0"
-  size="md"
 >
   Test button
 </button>
@@ -16,7 +15,6 @@ exports[`<Button> can render with theme 1`] = `
 exports[`<Button> can render without theme 1`] = `
 <button
   className="Button-sc-1gypvbx-0 "
-  size="md"
 >
   Test button
 </button>
