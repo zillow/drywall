@@ -25,7 +25,9 @@
     "test:update": "create-react-styleguide script test:update",
     "test:watch": "create-react-styleguide script test:watch",
     "prepublishOnly": "create-react-styleguide script prepublishOnly",
-    "release": "standard-version --commit-all"
+    "release": "standard-version --commit-all",
+    "predeploy": "npm run build:styleguide",
+    "deploy": "gh-pages -d styleguide"
   },
   "husky": {
     "hooks": {
@@ -45,6 +47,7 @@
     "create-react-styleguide": "^4.0.3",
     "eslint-plugin-jest": "^22.4.1",
     "eslint-plugin-zillow": "^3.1.0",
+    "gh-pages": "^2.0.1",
     "husky": "^2.4.1",
     "jest-styled-components": "^6.3.1",
     "react": "^16.8.6",
