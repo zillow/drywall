@@ -24,7 +24,8 @@
     "test:coverage": "create-react-styleguide script test:coverage",
     "test:update": "create-react-styleguide script test:update",
     "test:watch": "create-react-styleguide script test:watch",
-    "prepublishOnly": "create-react-styleguide script prepublishOnly"
+    "prepublishOnly": "create-react-styleguide script prepublishOnly",
+    "release": "standard-version --commit-all"
   },
   "husky": {
     "hooks": {
@@ -48,7 +49,8 @@
     "jest-styled-components": "^6.3.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-test-renderer": "^16.8.6"
+    "react-test-renderer": "^16.8.6",
+    "standard-version": "^6.0.1"
   },
   "author": "brians@zillowgroup.com",
   "homepage": "https://github.com/zillow/drywall",
