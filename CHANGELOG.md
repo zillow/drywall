@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.2.0](https://github.com/zillow/drywall/compare/v0.1.1...v0.2.0) (2019-06-22)
+
+
+### Build System
+
+* add GitHub pages deploy script ([46e057e](https://github.com/zillow/drywall/commit/46e057e))
+* move react and styled-components to peerDependencies and update the minimum version of react to 16.8 ([74de2d1](https://github.com/zillow/drywall/commit/74de2d1))
+
+
+### Features
+
+* add `Button` component ([0f3573a](https://github.com/zillow/drywall/commit/0f3573a))
+
+
+
 ### 0.1.1 (2019-06-22)
 
 
