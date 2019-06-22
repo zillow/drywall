@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Button> can render with theme 1`] = `
+.c0 {
+  color: red;
+}
+
+<button
+  className="c0"
+  size="md"
+>
+  Test button
+</button>
+`;
+
+exports[`<Button> can render without theme 1`] = `
+<button
+  className="Button-sc-1gypvbx-0 "
+  size="md"
+>
+  Test button
+</button>
+`;

@@ -1,27 +1,24 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import Button, { StyledButton } from '../components/Button/Button';
+import path from 'path';
+import glob from 'glob';
+import * as drywall from '../index';
 
-describe('Styled Button', () => {
-    it('displays a button with requested text', () => {
-        const component = renderer.create(<StyledButton>Click Me!</StyledButton>);
-        expect(component.toJSON()).toMatchSnapshot();
+describe('drywall exports', () => {
+    it('exports component properties', () => {
+        const components = glob.sync(path.join(__dirname, '../components/**/*.jsx'));
+        components.forEach(component => {
+            // eslint-disable-next-line
+            const module = require(component);
+            const basename = path.basename(component, '.jsx');
+            Object.keys(module).forEach(key => {
+                if (key === 'default') {
+                    expect(drywall).toHaveProperty(basename);
+                } else {
+                    expect(drywall).toHaveProperty(key);
+                }
+            });
+        });
     });
-
-    it('displays a secondary button with requested text', () => {
-        const component = renderer.create(<StyledButton type="secondary">⊙_ʘ</StyledButton>);
-        expect(component.toJSON()).toMatchSnapshot();
-    });
-});
-
-describe('Button', () => {
-    it('displays a button with requested text', () => {
-        const component = renderer.create(<Button>Click Me!</Button>);
-        expect(component.toJSON()).toMatchSnapshot();
-    });
-
-    it('displays a secondary button with requested text', () => {
-        const component = renderer.create(<Button type="secondary">⊙_ʘ</Button>);
-        expect(component.toJSON()).toMatchSnapshot();
+    it('exports theme properites', () => {
+        expect(drywall).toHaveProperty('withNamespace');
     });
 });
