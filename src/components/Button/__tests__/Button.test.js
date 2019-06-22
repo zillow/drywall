@@ -1,6 +1,6 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { ThemeProvider, css } from 'styled-components';
+import { ThemeProvider, css, isStyledComponent } from 'styled-components';
 import { Button, withNamespace } from '../../../index';
 
 describe('<Button>', () => {
@@ -26,6 +26,15 @@ describe('<Button>', () => {
         );
         const tree = testRenderer.toJSON();
         expect(tree).toHaveStyleRule('color', 'red');
+        expect(tree).toMatchSnapshot();
+    });
+    it('is a styled-component', () => {
+        expect(isStyledComponent(Button)).toBe(true);
+    });
+    it('supports the as prop', () => {
+        const testRenderer = TestRenderer.create(<Button as="a">Test button</Button>);
+        const tree = testRenderer.toJSON();
+        expect(tree.type).toBe('a');
         expect(tree).toMatchSnapshot();
     });
 });

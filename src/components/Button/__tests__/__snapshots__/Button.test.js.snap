@@ -19,3 +19,11 @@ exports[`<Button> can render without theme 1`] = `
   Test button
 </button>
 `;
+
+exports[`<Button> supports the as prop 1`] = `
+<a
+  className=""
+>
+  Test button
+</a>
+`;
