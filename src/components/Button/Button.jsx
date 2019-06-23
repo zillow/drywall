@@ -13,6 +13,18 @@ export const BUTTON_SIZES = {
     lg: 'lg',
 };
 
+/**
+ * An HTML `<button>` element.
+ *
+ * ##### Accessibility
+ * * https://www.w3.org/TR/wai-aria-practices/#button
+ *
+ * ##### Inspiration
+ * * https://getbootstrap.com/docs/4.3/components/buttons/
+ * * https://material-ui.com/components/buttons/
+ * * https://lightningdesignsystem.com/components/buttons/
+ * * https://atlaskit.atlassian.com/packages/core/button
+ */
 const Button = styled.button`
     ${props => props.theme && props.theme.ns && props.theme.ns().Button};
 `;
@@ -26,14 +38,6 @@ Button.propTypes = {
     buttonSize: PropTypes.oneOf(Object.keys(BUTTON_SIZES)),
     /** The type of the button */
     buttonType: PropTypes.oneOf(Object.keys(BUTTON_TYPES)),
-    /**
-     * Use the styled-components
-     * [polymorphic "as" prop](https://www.styled-components.com/docs/api#as-polymorphic-prop)
-     * to change the HTML tag of the component.
-     *
-     * This can be used to apply `Button` styling to HTML anchors.
-     */
-    as: PropTypes.string,
 };
 
 Button.defaultProps = {
@@ -41,9 +45,7 @@ Button.defaultProps = {
     inverse: false,
     buttonSize: BUTTON_SIZES.md,
     buttonType: BUTTON_TYPES.secondary,
-    as: 'button',
 };
 
 /** @component */
 export default Button;
-export const StyledButton = Button;
