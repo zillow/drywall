@@ -47,10 +47,12 @@ import TransparencyWrapper from '../../styleguidist/TransparencyWrapper';
 </TransparencyWrapper>
 ```
 
-You can use the styled-components [polymorphic "as" prop](https://www.styled-components.com/docs/api#as-polymorphic-prop) to change the HTML tag of the component, but know that changing the tag has accessibility implications. Consider adding [`role="button"`](https://www.w3.org/TR/wai-aria-1.1/#button) when changing the element tag.
+You can use the styled-components [polymorphic "as" prop](https://www.styled-components.com/docs/api#as-polymorphic-prop) to change the HTML tag of the component, but know that changing the tag has accessibility implications. Consider adding [`role="button"`](https://www.w3.org/TR/wai-aria-1.1/#button) when changing the element tag to an anchor if the anchor has button behavior.
 
 ```jsx
-<Button as="a" href="https://www.zillow.com/" appearance="primary">Zillow anchor</Button>{' '}
-<Button as="a" href="https://www.zillow.com/" appearance="secondary">Zillow anchor</Button>{' '}
-<Button as="a" href="https://www.zillow.com/" appearance="danger">Zillow anchor</Button>
+<Button as="a" href="#">Link</Button>{' '}
+<Button type="submit">Button</Button>{' '}
+<Button as="input" type="button" value="Input" />
+<Button as="input" type="submit" value="Submit" />
+<Button as="input" type="reset" value="Reset" />
 ```
