@@ -7,7 +7,7 @@ module.exports = createStyleguideConfig({
         href: 'https://github.com/zillow/drywall/blob/master/CHANGELOG.md',
         external: true
     }, {
-        name: 'README',
+        name: 'Introduction',
         content: 'README.md'
     }, {
         name: 'Theming',

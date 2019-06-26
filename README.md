@@ -1,5 +1,3 @@
-# drywall
-
 [![npm version](https://badge.fury.io/js/drywall.svg)](https://badge.fury.io/js/drywall)
 
 Drywall is a style agnostic component library built with [React](https://reactjs.org/) and
