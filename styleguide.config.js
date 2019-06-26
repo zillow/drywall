@@ -3,6 +3,7 @@ const { createStyleguideConfig } = require('create-react-styleguide');
 
 module.exports = createStyleguideConfig({
     sections: [{
+        name: 'README',
         content: 'README.md'
     }, {
         name: 'Theming',
