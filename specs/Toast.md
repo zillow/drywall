@@ -12,7 +12,7 @@ There are no similar components.
 
 #### Who is the primary consumer for this component? Does it belong in the core API?
 
-Everyone, this should be a core component.
+This is a core component.
 
 #### Are there any accessibility concerns or guidelines that should be followed?
 
@@ -22,11 +22,11 @@ Everyone, this should be a core component.
 
 #### Does the component behave any differently on desktop than it does on mobile? Is there any touch specific behavior?
 
-* *Answer the question*
+Should behave the same on desktop and mobile.
 
 #### How does the component behave with respect to other components?
 
-Can toasts stack?
+Toasts should stack when there are multiple on the page at once. You should be able to limit the number showing at once.
 
 #### Are there any performance considerations?
 
@@ -39,6 +39,8 @@ Inspiration:
 * https://getbootstrap.com/docs/4.3/components/toasts/
 * https://material-ui.com/components/snackbars/
 * https://lightningdesignsystem.com/components/toast/
+* https://ant.design/components/alert/
+* https://blueprintjs.com/docs/#core/components/toast
 
 Libraries:
 
@@ -50,7 +52,7 @@ Toasts should animate in and out.
 
 #### [Theming] Are there any z-index considerations?
 
-Toasts should live high in the z-index. Do toasts show above modals?
+Toasts should live high in the z-index, above modals in case the modal prompts a toast.
 
 API Specifications
 ------------------
