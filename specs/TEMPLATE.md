@@ -1,12 +1,3 @@
----
-name: Component Proposal
-about: Framing document for a new component proposal
-title: "[PROPOSAL] Component"
-labels: enhancement, proposal
-assignees: ''
-
----
-
 Description
 ===========
 
@@ -21,35 +12,35 @@ Investigation
 
 #### Who is the primary consumer for this component? Does it belong in the core API?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### Are there any accessibility concerns or guidelines that should be followed?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### Does the component behave any differently on desktop than it does on mobile? Is there any touch specific behavior?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### How does the component behave with respect to other components?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### Are there any performance considerations?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### Any prior art of this component (e.g. material-ui, bootstrap)?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### [Theming] Is there any animation, transition, or other forms of motion involved?
 
-* *Answer the question* 
+* *Answer the question*
 
 #### [Theming] Are there any z-index considerations?
 
-* *Answer the question* 
+* *Answer the question*
 
 API Specifications
 ==================
@@ -58,7 +49,7 @@ API Specifications
 
 | Name | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| *prop name* | *e.g. string, bool* | *prop default value* | *prop description* | 
+| *prop name* | *e.g. string, bool* | *prop default value* | *prop description* |
 
 ### Example Usage
 
