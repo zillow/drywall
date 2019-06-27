@@ -1,20 +1,21 @@
-Description
-===========
+Component
+=========
 
 *Enter a short description of the component and its use-case.*
 
-Investigation
-=============
+Inspiration
+-----------
+
+* *e.g. material-ui, bootstrap*
+
+Discovery
+---------
 
 #### Are there similar components already in the library? If yes, what are they and can they be modified instead to capture this use-case?
 
 * *Answer the question*
 
 #### Who is the primary consumer for this component? Does it belong in the core API?
-
-* *Answer the question*
-
-#### Are there any accessibility concerns or guidelines that should be followed?
 
 * *Answer the question*
 
@@ -26,11 +27,11 @@ Investigation
 
 * *Answer the question*
 
-#### Are there any performance considerations?
+#### Are there any existing libraries that can potentially be leveraged?
 
 * *Answer the question*
 
-#### Any prior art of this component (e.g. material-ui, bootstrap)?
+#### Are there any performance considerations?
 
 * *Answer the question*
 
@@ -42,8 +43,13 @@ Investigation
 
 * *Answer the question*
 
+Accessibility
+-------------
+
+*Add accessibility guidelines and resources here.*
+
 API Specifications
-==================
+------------------
 
 ### Props
 
@@ -53,7 +59,9 @@ API Specifications
 
 ### Example Usage
 
-    <Component />
+```jsx
+<Component />
+```
 
 ### Additional Specifications
 
