@@ -34,17 +34,11 @@ Need to look into the weight of the [notistack](https://github.com/iamhosseindhv
 
 #### Any prior art of this component (e.g. material-ui, bootstrap)?
 
-Inspiration:
-
 * https://getbootstrap.com/docs/4.3/components/toasts/
 * https://material-ui.com/components/snackbars/
 * https://lightningdesignsystem.com/components/toast/
 * https://ant.design/components/alert/
 * https://blueprintjs.com/docs/#core/components/toast
-
-Libraries:
-
-* https://github.com/iamhosseindhv/notistack
 
 #### [Theming] Is there any animation, transition, or other forms of motion involved?
 
@@ -66,9 +60,11 @@ API Specifications
 ### Example Usage
 
 ```jsx
-<Component />
+<ToastRegion>
+    <Toast />
+</ToastRegion>
 ```
 
 ### Additional Specifications
 
-*Add any other specifications (e.g. aria attributes, css transitions/animations, media queries)*
+* Library for managing toasts: https://github.com/iamhosseindhv/notistack
