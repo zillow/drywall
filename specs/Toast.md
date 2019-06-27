@@ -19,8 +19,19 @@ This is a core component.
 * https://www.w3.org/TR/wai-aria-practices/#alert
 
     > Because alerts are intended to provide important and potentially time-sensitive information without interfering with the user's ability to continue working, it is crucial they **do not affect keyboard focus.**
-
+    
+    > It is also important to avoid designing alerts that disappear automatically.
+    
 * https://getbootstrap.com/docs/4.3/components/toasts/#accessibility
+
+    > ...you should wrap your toasts in an aria-live region. Changes to live regions (such as injecting/updating a toast component) are automatically announced by screen readers without needing to move the user’s focus or otherwise interrupt the user...
+    
+    > Additionally, include aria-atomic="true" to ensure that the entire toast is always announced as a single (atomic) unit, rather than announcing what was changed...
+    
+    > You also need to adapt the role and aria-live level depending on the content. If it’s an important message like an error, use role="alert" aria-live="assertive", otherwise use role="status" aria-live="polite" attributes.
+    
+    > As the content you’re displaying changes, be sure to update the delay timeout to ensure people have enough time to read the toast.
+
 * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
 
 #### Does the component behave any differently on desktop than it does on mobile? Is there any touch specific behavior?
