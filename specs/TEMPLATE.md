@@ -53,7 +53,9 @@ API Specifications
 
 ### Example Usage
 
-    <Component />
+```jsx
+<Component />
+```
 
 ### Additional Specifications
 
