@@ -1,10 +1,10 @@
-Description
-===========
+Component
+=========
 
 *Enter a short description of the component and its use-case.*
 
 Investigation
-=============
+-------------
 
 #### Are there similar components already in the library? If yes, what are they and can they be modified instead to capture this use-case?
 
@@ -43,7 +43,7 @@ Investigation
 * *Answer the question*
 
 API Specifications
-==================
+------------------
 
 ### Props
 
