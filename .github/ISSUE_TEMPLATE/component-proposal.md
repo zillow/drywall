@@ -2,7 +2,7 @@
 name: Component Proposal
 about: Framing document for a new component proposal
 title: "[PROPOSAL] Component"
-labels: enhancement
+labels: enhancement, proposal
 assignees: ''
 
 ---
