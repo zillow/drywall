@@ -3,8 +3,8 @@ Component
 
 *Enter a short description of the component and its use-case.*
 
-Investigation
--------------
+Discovery
+---------
 
 #### Are there similar components already in the library? If yes, what are they and can they be modified instead to capture this use-case?
 

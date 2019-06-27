@@ -1,18 +1,18 @@
 Toast
 =====
 
-*Enter a short description of the component and its use-case.*
+Toasts are subtle messages that appear on the screen, used as an informational feedback mechanism for user initiated actions.
 
-Investigation
--------------
+Discovery
+---------
 
 #### Are there similar components already in the library? If yes, what are they and can they be modified instead to capture this use-case?
 
-* *Answer the question*
+There are no similar components.
 
 #### Who is the primary consumer for this component? Does it belong in the core API?
 
-* *Answer the question*
+Everyone, this should be a core component.
 
 #### Are there any accessibility concerns or guidelines that should be followed?
 
@@ -26,11 +26,11 @@ Investigation
 
 #### How does the component behave with respect to other components?
 
-* *Answer the question*
+Can toasts stack?
 
 #### Are there any performance considerations?
 
-* *Answer the question*
+Need to look into the weight of the [notistack](https://github.com/iamhosseindhv/notistack) library if we choose to use it.
 
 #### Any prior art of this component (e.g. material-ui, bootstrap)?
 
@@ -46,11 +46,11 @@ Libraries:
 
 #### [Theming] Is there any animation, transition, or other forms of motion involved?
 
-* *Answer the question*
+Toasts should animate in and out.
 
 #### [Theming] Are there any z-index considerations?
 
-* *Answer the question*
+Toasts should live high in the z-index. Do toasts show above modals?
 
 API Specifications
 ------------------
