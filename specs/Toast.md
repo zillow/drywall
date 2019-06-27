@@ -1,10 +1,10 @@
-Description
-===========
+Toast
+=====
 
 *Enter a short description of the component and its use-case.*
 
 Investigation
-=============
+-------------
 
 #### Are there similar components already in the library? If yes, what are they and can they be modified instead to capture this use-case?
 
@@ -16,7 +16,9 @@ Investigation
 
 #### Are there any accessibility concerns or guidelines that should be followed?
 
-* *Answer the question*
+* https://www.w3.org/TR/wai-aria-practices/#alert
+* https://getbootstrap.com/docs/4.3/components/toasts/#accessibility
+* https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
 
 #### Does the component behave any differently on desktop than it does on mobile? Is there any touch specific behavior?
 
@@ -32,7 +34,15 @@ Investigation
 
 #### Any prior art of this component (e.g. material-ui, bootstrap)?
 
-* *Answer the question*
+Inspiration:
+
+* https://getbootstrap.com/docs/4.3/components/toasts/
+* https://material-ui.com/components/snackbars/
+* https://lightningdesignsystem.com/components/toast/
+
+Libraries:
+
+* https://github.com/iamhosseindhv/notistack
 
 #### [Theming] Is there any animation, transition, or other forms of motion involved?
 
@@ -43,7 +53,7 @@ Investigation
 * *Answer the question*
 
 API Specifications
-==================
+------------------
 
 ### Props
 
