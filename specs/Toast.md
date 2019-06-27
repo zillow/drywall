@@ -17,6 +17,9 @@ This is a core component.
 #### Are there any accessibility concerns or guidelines that should be followed?
 
 * https://www.w3.org/TR/wai-aria-practices/#alert
+
+    > Because alerts are intended to provide important and potentially time-sensitive information without interfering with the user's ability to continue working, it is crucial they **do not affect keyboard focus.**
+
 * https://getbootstrap.com/docs/4.3/components/toasts/#accessibility
 * https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/ARIA_Live_Regions
 
