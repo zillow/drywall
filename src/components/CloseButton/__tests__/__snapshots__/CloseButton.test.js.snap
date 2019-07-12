@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CloseButton> can render with theme 1`] = `
+.c0 {
+  color: red;
+}
+
+<button
+  className="c0"
+/>
+`;
+
+exports[`<CloseButton> can render without theme 1`] = `
+<button
+  className="CloseButton-sqbalp-0 "
+/>
+`;
+
+exports[`<CloseButton> supports the as prop 1`] = `
+<a
+  className=""
+/>
+`;
