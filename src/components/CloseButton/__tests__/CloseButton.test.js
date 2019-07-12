@@ -1,23 +1,23 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { ThemeProvider, css, isStyledComponent } from 'styled-components';
-import { Button } from '../../../index';
+import { CloseButton } from '../../../index';
 import { createTestTheme } from '../../../test/util';
 
-describe('<Button>', () => {
+describe('<CloseButton>', () => {
     it('can render without theme', () => {
-        const testRenderer = TestRenderer.create(<Button>Test button</Button>);
+        const testRenderer = TestRenderer.create(<CloseButton />);
         expect(testRenderer.toJSON()).toMatchSnapshot();
     });
     it('can render with theme', () => {
         const theme = createTestTheme({
-            Button: css`
+            CloseButton: css`
                 color: red;
             `,
         });
         const testRenderer = TestRenderer.create(
             <ThemeProvider theme={theme}>
-                <Button>Test button</Button>
+                <CloseButton />
             </ThemeProvider>
         );
         const tree = testRenderer.toJSON();
@@ -25,10 +25,10 @@ describe('<Button>', () => {
         expect(tree).toMatchSnapshot();
     });
     it('is a styled-component', () => {
-        expect(isStyledComponent(Button)).toBe(true);
+        expect(isStyledComponent(CloseButton)).toBe(true);
     });
     it('supports the as prop', () => {
-        const testRenderer = TestRenderer.create(<Button as="a">Test button</Button>);
+        const testRenderer = TestRenderer.create(<CloseButton as="a" />);
         const tree = testRenderer.toJSON();
         expect(tree.type).toBe('a');
         expect(tree).toMatchSnapshot();

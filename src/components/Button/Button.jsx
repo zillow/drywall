@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import getTheme from '../../theme/getTheme';
 
 /**
  * An HTML `<button>` element.
@@ -14,7 +15,7 @@ import styled from 'styled-components';
  * * https://atlaskit.atlassian.com/packages/core/button
  */
 const Button = styled.button`
-    ${props => props.theme && props.theme.ns && props.theme.ns().Button};
+    ${getTheme('Button')}
 `;
 
 Button.propTypes = {
