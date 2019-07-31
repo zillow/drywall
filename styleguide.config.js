@@ -1,7 +1,7 @@
 const path = require('path');
 const { createStyleguideConfig } = require('create-react-styleguide');
 
-module.exports = createStyleguideConfig({
+let config = createStyleguideConfig({
     usageMode: 'expand',
     sections: [{
         name: 'Releases ↗',
@@ -22,3 +22,30 @@ module.exports = createStyleguideConfig({
         return `import { ${name} } from 'drywall';`;
     }
 });
+
+const TRANSFORMS_FOR_IE11 = {
+    test: /\.jsx?$/,
+    include: /node_modules\/(?=(acorn-jsx|estree-walker|regexpu-core|unicode-match-property-ecmascript|unicode-match-property-value-ecmascript|react-dev-utils|ansi-styles|ansi-regex|chalk|strip-ansi)\/).*/,
+    use: {
+        loader: "babel-loader",
+        options: {
+            presets: [
+                [
+                    "@babel/preset-env",
+                    {
+                        targets: {
+                            ie: "11"
+                        }
+                    }
+                ]
+            ]
+        }
+    }
+};
+
+config.webpackConfig.module.rules = [
+    TRANSFORMS_FOR_IE11,
+    ...config.webpackConfig.module.rules
+];
+
+module.exports = config;
