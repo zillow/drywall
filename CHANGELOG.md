@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.4.0](https://github.com/zillow/drywall/compare/v0.3.3...v0.4.0) (2019-08-01)
+
+
+### Build System
+
+* add IE11 support to the styleguidist documentation ([c6314f6](https://github.com/zillow/drywall/commit/c6314f6))
+* revert to standard-version@6.0.1 ([afc3ebd](https://github.com/zillow/drywall/commit/afc3ebd))
+* update outdated dependencies ([9400400](https://github.com/zillow/drywall/commit/9400400))
+* update outdated dependencies ([e9f548f](https://github.com/zillow/drywall/commit/e9f548f))
+
+
+### Features
+
+* add `Toast`, `ToastProvider`, `CloseButton`, and `AnimatedList` components ([85fdffb](https://github.com/zillow/drywall/commit/85fdffb))
+
+
+
 ### [0.3.3](https://github.com/zillow/drywall/compare/v0.3.2...v0.3.3) (2019-06-26)
 
 
