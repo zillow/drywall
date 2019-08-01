@@ -49,7 +49,7 @@
     "create-react-styleguide": "^5.0.0",
     "eslint-plugin-jest": "^22.14.1",
     "eslint-plugin-zillow": "^3.3.2",
-    "gh-pages": "^2.1.0",
+    "gh-pages": "^2.0.1",
     "glob": "^7.1.4",
     "husky": "^3.0.2",
     "jest-styled-components": "^6.3.1",
