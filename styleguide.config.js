@@ -3,6 +3,7 @@ const { createStyleguideConfig } = require('create-react-styleguide');
 
 let config = createStyleguideConfig({
     usageMode: 'expand',
+    serverPort: +process.env.PORT || 6060,
     sections: [{
         name: 'Releases ↗',
         href: 'https://github.com/zillow/drywall/blob/master/CHANGELOG.md',
