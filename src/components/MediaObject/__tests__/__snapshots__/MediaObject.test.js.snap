@@ -7,7 +7,6 @@ exports[`<MediaObject> can render with theme 1`] = `
 
 <div
   className="c0 MediaObject__StyledMediaObject-sc-12gs3hz-0 "
-  media="media"
 >
   <div
     className="MediaObject__Media-sc-12gs3hz-3 "
@@ -25,7 +24,6 @@ exports[`<MediaObject> can render with theme 1`] = `
 exports[`<MediaObject> can render without theme 1`] = `
 <div
   className="MediaObject-sc-12gs3hz-1 MediaObject__StyledMediaObject-sc-12gs3hz-0 "
-  media="media"
 >
   <div
     className="MediaObject__Media-sc-12gs3hz-3 "

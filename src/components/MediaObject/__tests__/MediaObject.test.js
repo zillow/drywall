@@ -30,6 +30,24 @@ describe('<MediaObject>', () => {
         expect(isStyledComponent(MediaObject)).toBe(true);
     });
 
+    it('does not pass "media" prop through to DOM', () => {
+        const testRenderer = TestRenderer.create(<MediaObject media="media">body</MediaObject>);
+        const testInstance = testRenderer.root;
+        const mediaObject = testInstance.findByType('div');
+        expect(mediaObject.props.media).toBeUndefined();
+    });
+
+    it('does not pass "direction" prop through to DOM', () => {
+        const testRenderer = TestRenderer.create(
+            <MediaObject media="media" direction="column">
+                body
+            </MediaObject>
+        );
+        const testInstance = testRenderer.root;
+        const mediaObject = testInstance.findByType('div');
+        expect(mediaObject.props.direction).toBeUndefined();
+    });
+
     it('does not pass unrecognized react props through to DOM', () => {
         const testRenderer = TestRenderer.create(
             <MediaObject media="media" data-foobar="baz" fooBar="baz">
