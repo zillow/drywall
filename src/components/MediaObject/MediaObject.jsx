@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import getTheme from '../../theme/getTheme';
+import { logDeprecation } from '../../js/util/logging';
 
 // This wrapper is used for nothing other than filtering props that are passed to it so they don't
 // bleed through to the DOM
@@ -18,14 +19,22 @@ const StyledMediaObject = styled.div``;
  * * http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
  */
 const MediaObject = styled(props => {
-    const { renderLayout } = props;
+    const { align, renderLayout } = props;
+
+    if (align === 'top' || align === 'bottom') {
+        logDeprecation(
+            'drywall prop `align` for the `MediaObject` component will no longer accept values `top` or `bottom` in the next MAJOR release, use `start` or `end` instead'
+        );
+    }
 
     let content = renderLayout;
     if (typeof renderLayout === 'function') {
         content = renderLayout(props);
     }
 
-    return <StyledMediaObject {...props}>{content}</StyledMediaObject>;
+    // Remove props that bleed through to the DOM
+    const { direction, media, ...rest } = props;
+    return <StyledMediaObject {...rest}>{content}</StyledMediaObject>;
 })`
     ${getTheme('MediaObject')}
 `;
@@ -41,11 +50,15 @@ MediaObject.propTypes = {
     /**
      * How to align the media content with respect to the children content.
      */
-    align: PropTypes.oneOf(['top', 'center', 'bottom']),
+    align: PropTypes.oneOf(['start', 'top', 'center', 'bottom', 'end']),
     /**
      * The body content.
      */
     children: PropTypes.node,
+    /**
+     * The direction in which the media and content will be placed.
+     */
+    direction: PropTypes.oneOf(['row', 'column']),
     /**
      * The spacing between media and children content.
      */
@@ -69,7 +82,8 @@ MediaObject.propTypes = {
 };
 
 MediaObject.defaultProps = {
-    align: 'top',
+    align: 'start',
+    direction: 'row',
     // eslint-disable-next-line zillow/react/prop-types
     renderLayout: ({ media, children }) => (
         <React.Fragment>

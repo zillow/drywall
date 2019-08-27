@@ -19,7 +19,7 @@ Center aligned.
 Bottom aligned.
 
 ```jsx
-<MediaObject media={<div style={{ height: '64px', width: '64px', background: '#777' }} />} align="bottom">
+<MediaObject media={<div style={{ height: '64px', width: '64px', background: '#777' }} />} align="end">
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare lorem sit amet quam mattis,
     ac fringilla est commodo. Vestibulum rhoncus congue tempus. Vivamus cursus scelerisque nulla sit
     amet placerat. Morbi rhoncus dictum elementum.
