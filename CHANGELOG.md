@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.6.0](https://github.com/zillow/drywall/compare/v0.5.0...v0.6.0) (2019-08-28)
+
+
+### Build System
+
+* allow changing the dev server port with the `PORT` env variable ([e069a88](https://github.com/zillow/drywall/commit/e069a88))
+
+
+### Features
+
+* **MediaObject:** added `direction` prop for changing `MediaObject` layout ([2c9c72b](https://github.com/zillow/drywall/commit/2c9c72b))
+
+
+
 ## [0.5.0](https://github.com/zillow/drywall/compare/v0.4.0...v0.5.0) (2019-08-21)
 
 
