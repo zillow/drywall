@@ -1,0 +1,4 @@
+```jsx
+<Checkbox />{' '}
+<Checkbox defaultChecked />
+```
