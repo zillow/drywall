@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Select> renders a default select 1`] = `
+<select>
+  <option>
+    Test option 1
+  </option>
+  <option>
+    Test option 2
+  </option>
+  <option>
+    Test option 3
+  </option>
+</select>
+`;
