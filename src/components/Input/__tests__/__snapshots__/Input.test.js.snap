@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Input> renders a default text input 1`] = `
+<input
+  type="text"
+  value="test input"
+/>
+`;
