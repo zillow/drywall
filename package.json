@@ -35,30 +35,24 @@
     }
   },
   "dependencies": {
-    "prop-types": "^15.7.2",
-    "react-spring": "^8.0.27"
+    "prop-types": "^15.7.2"
   },
   "peerDependencies": {
     "react": "^16.8.0",
-    "react-dom": "^16.8.0",
-    "styled-components": ">=4.1.2"
+    "react-dom": "^16.8.0"
   },
   "devDependencies": {
-    "babel-plugin-styled-components": "^1.10.6",
-    "babel-preset-zillow": "^4.0.3",
-    "create-react-styleguide": "^5.0.0",
-    "eslint-plugin-jest": "^22.14.1",
-    "eslint-plugin-zillow": "^3.3.2",
-    "gh-pages": "^2.0.1",
-    "glob": "^7.1.4",
-    "husky": "^3.0.2",
-    "jest-styled-components": "^6.3.1",
-    "lolex": "^4.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-test-renderer": "^16.8.6",
-    "standard-version": "^6.0.1",
-    "styled-components": "^4.2.0"
+    "babel-preset-zillow": "^4.2.0",
+    "create-react-styleguide": "^5.1.0",
+    "eslint-plugin-jest": "^23.1.1",
+    "eslint-plugin-zillow": "^3.5.1",
+    "gh-pages": "^2.1.1",
+    "glob": "^7.1.6",
+    "husky": "^3.1.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0",
+    "standard-version": "^6.0.1"
   },
   "author": "brians@zillowgroup.com",
   "homepage": "https://github.com/zillow/drywall",

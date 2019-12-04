@@ -18,7 +18,4 @@ describe('drywall exports', () => {
             });
         });
     });
-    it('exports theme properites', () => {
-        expect(drywall).toHaveProperty('withNamespace');
-    });
 });

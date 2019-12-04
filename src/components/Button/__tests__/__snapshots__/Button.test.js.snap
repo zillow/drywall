@@ -1,29 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Button> can render with theme 1`] = `
-.c0 {
-  color: red;
-}
-
-<button
-  className="c0"
->
-  Test button
-</button>
-`;
-
-exports[`<Button> can render without theme 1`] = `
-<button
-  className="Button-sc-1gypvbx-0 "
->
-  Test button
-</button>
-`;
-
-exports[`<Button> supports the as prop 1`] = `
+exports[`<Button> adds the button role for non-semantic elements 1`] = `
 <a
-  className=""
+  role="button"
 >
   Test button
 </a>
+`;
+
+exports[`<Button> renders a default button 1`] = `
+<button>
+  Test button
+</button>
 `;

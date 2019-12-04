@@ -1,10 +1,6 @@
 const { createJestConfig } = require('create-react-styleguide');
 
 module.exports = createJestConfig({
-    setupFilesAfterEnv: ['jest-styled-components'],
-    coveragePathIgnorePatterns: [
-        '<rootDir>/src/styleguidist/',
-    ],
     coverageThreshold: {
         global: {
             branches: 100,

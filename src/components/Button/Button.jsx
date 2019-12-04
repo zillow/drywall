@@ -1,62 +1,34 @@
+import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import getTheme from '../../theme/getTheme';
 
 /**
- * An HTML `<button>` element.
+ * A simple [HTML button](
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button)
+ * that adds ARIA roles for non-semantic elements.
  *
  * ##### Accessibility
  * * https://www.w3.org/TR/wai-aria-practices/#button
- *
- * ##### Inspiration
- * * https://getbootstrap.com/docs/4.3/components/buttons/
- * * https://material-ui.com/components/buttons/
- * * https://lightningdesignsystem.com/components/buttons/
- * * https://atlaskit.atlassian.com/packages/core/button
+ * * https://www.w3.org/TR/wai-aria-1.1/#button
  */
-const Button = styled.button`
-    ${getTheme('Button')}
-`;
+const Button = ({ as, ...rest }) => {
+    const props = { ...rest };
+    if (as !== 'button') {
+        props.role = 'button';
+    }
+    return React.createElement(as, props);
+};
 
 Button.propTypes = {
     /**
-     * Button `appearance` is used for giving different meaning to a button within a `variant`.
-     * For example, a "primary" button might look different from a "secondary" or "tertiary" button,
-     * or a "danger" button might be styled to really stand out to warn the user.
-     *
-     * e.g. `"primary"`, `"secondary"`, `"tertiary"`, `"danger"`
+     * Use the `as` prop to use a different HTML element than the default "button".
+     * Elements other than "button" will receive the
+     * [ARIA button role](https://www.w3.org/TR/wai-aria-1.1/#button).
      */
-    appearance: PropTypes.string,
-    /**
-     * Use `buttonSize` to adjust the size of the button.
-     *
-     * e.g. `"sm"`, `"md"`, `"lg"`
-     */
-    buttonSize: PropTypes.string,
-    /**
-     * A `fluid` button will take up all horizontal space, acting like a block level element.
-     */
-    fluid: PropTypes.bool,
-    /**
-     * An `inverse` button should be used when the background is dark or colored to provide proper
-     * contrast.
-     */
-    inverse: PropTypes.bool,
-    /**
-     * Button `variant` defines the structure of a button, which provides a consistent look and feel
-     * across different `appearance` values.
-     * An example would be a "solid" versus an "outline" button, or a "text" button that behaves
-     * more like a link.
-     *
-     * e.g. `"default"`, `"solid"`, `"outline"`, `"text"`
-     */
-    variant: PropTypes.string,
+    as: PropTypes.string,
 };
 
 Button.defaultProps = {
-    fluid: false,
-    inverse: false,
+    as: 'button',
 };
 
-/** @component */
 export default Button;
