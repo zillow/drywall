@@ -1,0 +1,44 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
+/**
+ * A simple [HTML range input](
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range).
+ */
+const Range = props => <input type="range" {...props} />;
+
+Range.propTypes = {
+    /**
+     * The default value for an
+     * [uncontrolled input](https://reactjs.org/docs/uncontrolled-components.html).
+     */
+    // eslint-disable-next-line zillow/react/require-default-props
+    defaultValue: PropTypes.string,
+    /**
+     * [Native attribute](
+     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#max)
+     */
+    max: PropTypes.string.isRequired,
+    /**
+     * [Native attribute](
+     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#min)
+     */
+    min: PropTypes.string.isRequired,
+    /**
+     * [Native attribute](
+     * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#step)
+     */
+    step: PropTypes.string,
+    /**
+     * The value for a
+     * [controlled input](https://reactjs.org/docs/forms.html#controlled-components).
+     */
+    // eslint-disable-next-line zillow/react/require-default-props
+    value: PropTypes.string,
+};
+
+Range.defaultProps = {
+    step: '1',
+};
+
+export default Range;
