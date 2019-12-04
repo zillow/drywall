@@ -1,0 +1,8 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Radio> renders a default radio 1`] = `
+<input
+  name="test-radio"
+  type="radio"
+/>
+`;
