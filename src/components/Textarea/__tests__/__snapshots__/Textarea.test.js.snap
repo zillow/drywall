@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Textarea> renders a default textarea 1`] = `
+<textarea
+  value="Test text"
+/>
+`;
