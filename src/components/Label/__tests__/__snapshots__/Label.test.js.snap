@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Label> renders a default text input 1`] = `
+<label
+  htmlFor="test-input"
+>
+  Test label
+</label>
+`;
