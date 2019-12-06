@@ -26,6 +26,14 @@ describe('<Field>', () => {
         expect(tree.type).toBe('section');
     });
 
+    it('forwards ref', () => {
+        const ref = React.createRef();
+        TestRenderer.create(<Field ref={ref} />, {
+            createNodeMock: () => 'node-mock',
+        });
+        expect(ref.current).toBe('node-mock');
+    });
+
     it('generates a new controlId', () => {
         const context = jest.fn();
         TestRenderer.create(

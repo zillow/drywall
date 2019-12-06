@@ -17,6 +17,21 @@ describe('<Select>', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    it('forwards ref', () => {
+        const ref = React.createRef();
+        TestRenderer.create(
+            <Select ref={ref}>
+                <option>Test option 1</option>
+                <option>Test option 2</option>
+                <option>Test option 3</option>
+            </Select>,
+            {
+                createNodeMock: () => 'node-mock',
+            }
+        );
+        expect(ref.current).toBe('node-mock');
+    });
+
     describe('FieldContext', () => {
         it('uses the given id if provided', () => {
             const testRenderer = TestRenderer.create(
@@ -47,13 +62,15 @@ describe('<Select>', () => {
         });
 
         it('does not error if used outside of context without an id', () => {
-            expect(() => TestRenderer.create(
-                <Select>
-                    <option>Test option 1</option>
-                    <option>Test option 2</option>
-                    <option>Test option 3</option>
-                </Select>
-            )).not.toThrow();
+            expect(() =>
+                TestRenderer.create(
+                    <Select>
+                        <option>Test option 1</option>
+                        <option>Test option 2</option>
+                        <option>Test option 3</option>
+                    </Select>
+                )
+            ).not.toThrow();
         });
     });
 });

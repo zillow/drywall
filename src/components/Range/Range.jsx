@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML range input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range).
  */
-const Range = ({ id, ...rest }) => {
+const Range = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <input type="range" id={id || controlId} {...rest} />;
-};
+    return <input ref={ref} type="range" id={id || controlId} {...rest} />;
+});
 
 Range.propTypes = {
     /**

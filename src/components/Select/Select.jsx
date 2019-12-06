@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML select](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
  */
-const Select = ({ id, ...rest }) => {
+const Select = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <select id={id || controlId} {...rest} />;
-};
+    return <select ref={ref} id={id || controlId} {...rest} />;
+});
 
 Select.propTypes = {
     /**

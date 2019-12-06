@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML checkbox input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox).
  */
-const Checkbox = ({ id, ...rest }) => {
+const Checkbox = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <input type="checkbox" id={id || controlId} {...rest} />;
-};
+    return <input ref={ref} type="checkbox" id={id || controlId} {...rest} />;
+});
 
 Checkbox.propTypes = {
     /**

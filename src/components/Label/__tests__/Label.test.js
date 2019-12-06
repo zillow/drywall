@@ -13,6 +13,14 @@ describe('<Label>', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    it('forwards ref', () => {
+        const ref = React.createRef();
+        TestRenderer.create(<Label ref={ref} />, {
+            createNodeMock: () => 'node-mock',
+        });
+        expect(ref.current).toBe('node-mock');
+    });
+
     describe('FieldContext', () => {
         it('uses the given htmlFor if provided', () => {
             const testRenderer = TestRenderer.create(

@@ -8,11 +8,11 @@ import { identifier } from '../../js/identifier';
  * Form controls and labels are automatically associated with `htmlFor` and `id` if none are
  * provided.
  */
-const Field = ({ as, controlId, ...rest }) => (
+const Field = React.forwardRef(({ as, controlId, ...rest }, ref) => (
     <FieldContext.Provider value={{ controlId: controlId || identifier() }}>
-        {React.createElement(as, rest)}
+        {React.createElement(as, { ...rest, ref })}
     </FieldContext.Provider>
-);
+));
 
 Field.propTypes = {
     /**

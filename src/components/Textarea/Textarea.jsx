@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML textarea](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea).
  */
-const Textarea = ({ id, ...rest }) => {
+const Textarea = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <textarea id={id || controlId} {...rest} />;
-};
+    return <textarea ref={ref} id={id || controlId} {...rest} />;
+});
 
 Textarea.propTypes = {
     /**

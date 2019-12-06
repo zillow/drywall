@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML label](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label).
  */
-const Label = ({ htmlFor, ...rest }) => {
+const Label = React.forwardRef(({ htmlFor, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <label htmlFor={htmlFor || controlId} {...rest} />;
-};
+    return <label ref={ref} htmlFor={htmlFor || controlId} {...rest} />;
+});
 
 Label.propTypes = {
     /**

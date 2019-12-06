@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML text input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input).
  */
-const Input = ({ id, ...rest }) => {
+const Input = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <input type="text" id={id || controlId} {...rest} />;
-};
+    return <input ref={ref} type="text" id={id || controlId} {...rest} />;
+});
 
 Input.propTypes = {
     /**

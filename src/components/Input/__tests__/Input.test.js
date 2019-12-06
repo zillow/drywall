@@ -13,6 +13,14 @@ describe('<Input>', () => {
         expect(tree).toMatchSnapshot();
     });
 
+    it('forwards ref', () => {
+        const ref = React.createRef();
+        TestRenderer.create(<Input ref={ref} />, {
+            createNodeMock: () => 'node-mock',
+        });
+        expect(ref.current).toBe('node-mock');
+    });
+
     describe('FieldContext', () => {
         it('uses the given id if provided', () => {
             const testRenderer = TestRenderer.create(

@@ -6,10 +6,10 @@ import FieldContext from '../../js/FieldContext';
  * A simple [HTML radio input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/radio).
  */
-const Radio = ({ id, ...rest }) => {
+const Radio = React.forwardRef(({ id, ...rest }, ref) => {
     const { controlId } = React.useContext(FieldContext);
-    return <input type="radio" id={id || controlId} {...rest} />;
-};
+    return <input ref={ref} type="radio" id={id || controlId} {...rest} />;
+});
 
 Radio.propTypes = {
     /**

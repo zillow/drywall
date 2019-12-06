@@ -18,4 +18,12 @@ describe('<Button>', () => {
         expect(tree.props.role).toBe('button');
         expect(tree).toMatchSnapshot();
     });
+
+    it('forwards ref', () => {
+        const ref = React.createRef();
+        TestRenderer.create(<Button ref={ref}>Test button</Button>, {
+            createNodeMock: () => 'node-mock',
+        });
+        expect(ref.current).toBe('node-mock');
+    });
 });

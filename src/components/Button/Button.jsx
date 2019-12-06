@@ -10,13 +10,13 @@ import PropTypes from 'prop-types';
  * * https://www.w3.org/TR/wai-aria-practices/#button
  * * https://www.w3.org/TR/wai-aria-1.1/#button
  */
-const Button = ({ as, ...rest }) => {
+const Button = React.forwardRef(({ as, ...rest }, ref) => {
     const props = { ...rest };
     if (as !== 'button') {
         props.role = 'button';
     }
-    return React.createElement(as, props);
-};
+    return React.createElement(as, { ...props, ref });
+});
 
 Button.propTypes = {
     /**
