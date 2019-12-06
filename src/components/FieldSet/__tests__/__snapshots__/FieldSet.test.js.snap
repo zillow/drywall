@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<FieldSet> renders a default field set 1`] = `
+<fieldset>
+  <legend>
+    test legend
+  </legend>
+  form controls
+</fieldset>
+`;
