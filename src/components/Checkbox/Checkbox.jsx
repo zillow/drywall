@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FieldContext from '../../js/FieldContext';
 
 /**
  * A simple [HTML checkbox input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox).
  */
-const Checkbox = props => <input type="checkbox" {...props} />;
+const Checkbox = ({ id, ...rest }) => {
+    const { controlId } = React.useContext(FieldContext);
+    return <input type="checkbox" id={id || controlId} {...rest} />;
+};
 
 Checkbox.propTypes = {
     /**
@@ -20,6 +24,11 @@ Checkbox.propTypes = {
      */
     // eslint-disable-next-line zillow/react/require-default-props
     defaultChecked: PropTypes.bool,
+    /**
+     * [Native attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+     */
+    // eslint-disable-next-line zillow/react/require-default-props
+    id: PropTypes.string,
 };
 
 export default Checkbox;

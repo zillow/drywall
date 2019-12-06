@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FieldContext from '../../js/FieldContext';
 
 /**
  * A simple [HTML select](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select).
  */
-const Select = props => <select {...props} />;
+const Select = ({ id, ...rest }) => {
+    const { controlId } = React.useContext(FieldContext);
+    return <select id={id || controlId} {...rest} />;
+};
 
 Select.propTypes = {
     /**
@@ -18,6 +22,11 @@ Select.propTypes = {
      */
     // eslint-disable-next-line zillow/react/require-default-props
     defaultValue: PropTypes.string,
+    /**
+     * [Native attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+     */
+    // eslint-disable-next-line zillow/react/require-default-props
+    id: PropTypes.string,
     /**
      * The value for a
      * [controlled input](https://reactjs.org/docs/forms.html#controlled-components).

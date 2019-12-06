@@ -1,6 +1,7 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { Range } from '../../../index';
+import FieldContext from '../../../js/FieldContext';
 
 describe('<Range>', () => {
     it('renders a default text input', () => {
@@ -13,5 +14,31 @@ describe('<Range>', () => {
         expect(tree.props.max).toBe('10');
         expect(tree.props.step).toBe('1');
         expect(tree).toMatchSnapshot();
+    });
+
+    describe('FieldContext', () => {
+        it('uses the given id if provided', () => {
+            const testRenderer = TestRenderer.create(
+                <FieldContext.Provider value={{ controlId: 'context-id' }}>
+                    <Range id="given-id" min="0" max="10" />
+                </FieldContext.Provider>
+            );
+            const tree = testRenderer.toJSON();
+            expect(tree.props.id).toBe('given-id');
+        });
+
+        it('uses controlId if no id is provided', () => {
+            const testRenderer = TestRenderer.create(
+                <FieldContext.Provider value={{ controlId: 'context-id' }}>
+                    <Range min="0" max="10" />
+                </FieldContext.Provider>
+            );
+            const tree = testRenderer.toJSON();
+            expect(tree.props.id).toBe('context-id');
+        });
+
+        it('does not error if used outside of context without an id', () => {
+            expect(() => TestRenderer.create(<Range min="0" max="10" />)).not.toThrow();
+        });
     });
 });

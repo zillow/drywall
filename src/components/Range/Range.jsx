@@ -1,11 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import FieldContext from '../../js/FieldContext';
 
 /**
  * A simple [HTML range input](
  * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range).
  */
-const Range = props => <input type="range" {...props} />;
+const Range = ({ id, ...rest }) => {
+    const { controlId } = React.useContext(FieldContext);
+    return <input type="range" id={id || controlId} {...rest} />;
+};
 
 Range.propTypes = {
     /**
@@ -14,6 +18,11 @@ Range.propTypes = {
      */
     // eslint-disable-next-line zillow/react/require-default-props
     defaultValue: PropTypes.string,
+    /**
+     * [Native attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/id)
+     */
+    // eslint-disable-next-line zillow/react/require-default-props
+    id: PropTypes.string,
     /**
      * [Native attribute](
      * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/range#max)
