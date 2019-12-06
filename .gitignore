@@ -1,7 +1,7 @@
 /coverage
 /es
-/lib
-/node_modules
+lib/
+node_modules/
 /styleguide
 npm-debug.log*
 .DS_Store

@@ -1,0 +1,12 @@
+{
+    "command": {
+        "publish": {
+            "conventionalCommits": true,
+            "message": "chore(release): Publish packages"
+        }
+    },
+    "packages": [
+        "packages/*"
+    ],
+    "version": "independent"
+}

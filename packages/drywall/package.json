@@ -1,0 +1,25 @@
+{
+  "name": "@zillow/drywall",
+  "version": "0.6.0",
+  "description": "drywall component library",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
+  "author": "brians@zillowgroup.com",
+  "homepage": "https://github.com/zillow/drywall",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zillow/drywall.git"
+  }
+}

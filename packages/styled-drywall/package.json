@@ -1,0 +1,18 @@
+{
+  "name": "@zillow/styled-drywall",
+  "version": "1.0.0",
+  "description": "drywall + styled-components",
+  "main": "lib/index.js",
+  "module": "lib/index.esm.js",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "author": "brians@zillowgroup.com",
+  "homepage": "https://github.com/zillow/drywall",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zillow/drywall.git"
+  }
+}

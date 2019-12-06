@@ -1,67 +1,49 @@
 {
-  "name": "drywall",
-  "version": "0.6.0",
-  "description": "drywall component library",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "sideEffects": false,
-  "files": [
-    "es",
-    "lib",
-    "src",
-    "docs",
-    "styleguide.config.js"
-  ],
+  "name": "@zillow/drywall-monorepo",
+  "private": true,
+  "version": "0.0.0-ignore",
+  "author": "brians@zillowgroup.com",
+  "homepage": "https://github.com/zillow/drywall",
+  "license": "MIT",
   "scripts": {
-    "build": "create-react-styleguide script build",
-    "build:watch": "create-react-styleguide script build:watch",
+    "build": "NODE_ENV=production pectin",
     "build:styleguide": "create-react-styleguide script build:styleguide",
-    "clean": "create-react-styleguide script clean",
     "eslint": "create-react-styleguide script eslint",
     "eslint:fix": "create-react-styleguide script eslint:fix",
+    "preversion": "npm run eslint && npm run test && npm run build",
     "start": "create-react-styleguide script start",
     "test": "create-react-styleguide script test",
     "test:coverage": "create-react-styleguide script test:coverage",
     "test:update": "create-react-styleguide script test:update",
-    "test:watch": "create-react-styleguide script test:watch",
-    "prepublishOnly": "create-react-styleguide script prepublishOnly",
-    "release": "standard-version --commit-all",
-    "predeploy": "npm run build:styleguide",
-    "deploy": "gh-pages -d styleguide"
+    "test:watch": "create-react-styleguide script test:watch"
   },
   "husky": {
     "hooks": {
       "pre-commit": "npm run eslint && npm run test"
     }
   },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
-  },
-  "devDependencies": {
-    "babel-preset-zillow": "^4.2.0",
-    "create-react-styleguide": "^5.1.0",
-    "eslint-plugin-jest": "^23.1.1",
-    "eslint-plugin-zillow": "^3.5.1",
-    "gh-pages": "^2.1.1",
-    "glob": "^7.1.6",
-    "husky": "^3.1.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-test-renderer": "^16.12.0",
-    "standard-version": "^6.0.1"
-  },
-  "author": "brians@zillowgroup.com",
-  "homepage": "https://github.com/zillow/drywall",
-  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@github.com:zillow/drywall.git"
   },
   "keywords": [
     "react-component"
-  ]
+  ],
+  "devDependencies": {
+    "babel-preset-zillow": "^4.2.0",
+    "create-react-styleguide": "^5.1.0",
+    "eslint-plugin-jest": "^23.6.0",
+    "eslint-plugin-zillow": "^3.5.1",
+    "glob": "^7.1.6",
+    "husky": "^4.2.1",
+    "lerna": "^3.20.2",
+    "pectin": "^3.6.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-test-renderer": "^16.12.0"
+  },
+  "dependencies": {
+    "@zillow/drywall": "file:packages/drywall",
+    "@zillow/styled-drywall": "file:packages/styled-drywall"
+  }
 }
