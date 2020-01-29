@@ -4,6 +4,6 @@
   },
   "extends": ["plugin:zillow/recommended", "plugin:zillow/jest"],
   "rules": {
-    "zillow/import/no-extraneous-dependencies": ["error", {"packageDir": ["./", "./packages/drywall"]}]
+    "zillow/import/no-extraneous-dependencies": ["error", {"packageDir": ["./", "./packages/drywall", "./packages/styled-drywall"]}]
   }
 }

@@ -14,5 +14,9 @@
   "repository": {
     "type": "git",
     "url": "git@github.com:zillow/drywall.git"
+  },
+  "dependencies": {
+    "@zillow/drywall": "file:../drywall",
+    "styled-components": "^5.0.0"
   }
 }

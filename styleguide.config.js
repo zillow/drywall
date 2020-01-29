@@ -24,8 +24,11 @@ module.exports = createStyleguideConfig({
         name: 'Introduction',
         content: 'packages/drywall/README.md'
     }, {
-        name: "Components",
-        components: "packages/drywall/src/**/[A-Z]*.jsx"
+        name: 'drywall',
+        components: 'packages/drywall/src/**/[A-Z]*.jsx'
+    }, {
+        name: 'styled-drywall',
+        components: 'packages/styled-drywall/src/**/[A-Z]*.jsx'
     }],
     getComponentPathLine: componentPath => {
         const name = path.basename(componentPath, '.jsx');
