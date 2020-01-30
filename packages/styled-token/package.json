@@ -1,0 +1,24 @@
+{
+  "name": "styled-token",
+  "version": "0.3.0",
+  "description": "A helper function for accessing token values from a styled-components theme",
+  "main": "lib/index.js",
+  "module": "lib/index/esm.js",
+  "sideEffects": false,
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "styled-components",
+    "theme",
+    "helper",
+    "token"
+  ],
+  "author": "brians@zillowgroup.com",
+  "homepage": "https://github.com/zillow/drywall/tree/master/packages/styled-token",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zillow/drywall.git"
+  }
+}

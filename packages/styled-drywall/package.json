@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@zillow/drywall": "file:../drywall",
-    "styled-components": "^5.0.0"
+    "styled-components": "^5.0.0",
+    "styled-token": "file:../styled-token"
   }
 }

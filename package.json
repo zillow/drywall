@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@zillow/drywall": "file:packages/drywall",
-    "@zillow/styled-drywall": "file:packages/styled-drywall"
+    "@zillow/styled-drywall": "file:packages/styled-drywall",
+    "styled-token": "file:packages/styled-token"
   }
 }

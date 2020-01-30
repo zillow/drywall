@@ -1,5 +1,5 @@
 import { css } from 'styled-components';
-import { token as t } from '../helpers/token';
+import t from 'styled-token';
 
 export const buttonMixin = css`
     cursor: pointer;
