@@ -50,4 +50,13 @@ defaultTheme.Buttons = {
     fontSize: defaultTheme.fontSizes[2],
 };
 
+defaultTheme.Inputs = {
+    padding: defaultTheme.space[2],
+    backgroundColor: defaultTheme.colors.white,
+    color: defaultTheme.colors.black,
+    border: `${defaultTheme.borders[0]} solid ${defaultTheme.colors.grays[3]}`,
+    borderRadius: defaultTheme.radii.default,
+    fontSize: defaultTheme.fontSizes[2],
+};
+
 export { defaultTheme };
