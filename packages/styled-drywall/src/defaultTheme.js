@@ -43,20 +43,24 @@ const defaultTheme = {
 
 defaultTheme.Buttons = {
     padding: defaultTheme.space[2],
-    border: `${defaultTheme.borders[0]} solid ${defaultTheme.colors.blue}`,
+    borderWidth: defaultTheme.borders[0],
+    borderColor: defaultTheme.colors.blue,
     backgroundColor: defaultTheme.colors.blue,
     color: defaultTheme.colors.white,
     borderRadius: defaultTheme.radii.default,
     fontSize: defaultTheme.fontSizes[2],
+    fontFamily: defaultTheme.fonts['sans-serif'],
 };
 
 defaultTheme.Inputs = {
     padding: defaultTheme.space[2],
     backgroundColor: defaultTheme.colors.white,
     color: defaultTheme.colors.black,
-    border: `${defaultTheme.borders[0]} solid ${defaultTheme.colors.grays[3]}`,
+    borderWidth: defaultTheme.borders[0],
+    borderColor: defaultTheme.colors.grays[4],
     borderRadius: defaultTheme.radii.default,
     fontSize: defaultTheme.fontSizes[2],
+    fontFamily: defaultTheme.fonts['sans-serif'],
 };
 
 export { defaultTheme };

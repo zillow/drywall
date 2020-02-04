@@ -8,9 +8,10 @@ export const buttonMixin = css`
     user-select: none;
 
     background-color: ${t('Buttons.backgroundColor')};
-    border: ${t('Buttons.border')};
+    border: ${t('Buttons.borderWidth')} solid ${t('Buttons.borderColor')};
     color: ${t('Buttons.color')};
     padding: ${t('Buttons.padding')};
     border-radius: ${t('Buttons.borderRadius')};
     font-size: ${t('Buttons.fontSize')};
+    font-family: ${t('Buttons.fontFamily')};
 `;
