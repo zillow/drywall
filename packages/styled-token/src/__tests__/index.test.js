@@ -63,6 +63,39 @@ describe('token', () => {
         expect(token('foo')(props)).toBeUndefined();
     });
 
+    it('has a hyphen in the path', () => {
+        const props = {
+            theme: {
+                foo: {
+                    'bar-baz': 'BARBAZ',
+                },
+            },
+        };
+        expect(token('foo.bar-baz')(props)).toBe('BARBAZ');
+    });
+
+    it('has a period in the path segment key', () => {
+        const props = {
+            theme: {
+                foo: {
+                    'bar.baz': 'BARBAZ',
+                },
+            },
+        };
+        expect(token('foo.bar.baz')(props)).toBeUndefined();
+    });
+
+    it('uses bracket notation for accessing an object property', () => {
+        const props = {
+            theme: {
+                foo: {
+                    'bar.baz': 'BARBAZ',
+                },
+            },
+        };
+        expect(token('foo["bar.baz"]')(props)).toBe('BARBAZ');
+    });
+
     describe('namespacing', () => {
         it('defines a namespace on the theme with NAMESPACE', () => {
             const props = {

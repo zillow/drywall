@@ -1,3 +1,5 @@
+import { stringToPath } from './stringToPath';
+
 /**
  * See README.md for full documentation.
  *
@@ -43,7 +45,7 @@ export default (path, options = {}, callback) => props => {
         val = originalVal;
 
         // Traverse the path
-        const properties = p.split(/[.[\]]/g);
+        const properties = stringToPath(p);
         for (let j = 0; j < properties.length && typeof val !== 'undefined'; j += 1) {
             const property = properties[j];
             // Skip empty string properties
