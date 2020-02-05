@@ -1,3 +1,4 @@
+export { default as AdornedInput } from './components/AdornedInput/AdornedInput';
 export { default as Adornment } from './components/Adornment/Adornment';
 export { default as Button } from './components/Button/Button';
 export { default as Checkbox } from './components/Checkbox/Checkbox';

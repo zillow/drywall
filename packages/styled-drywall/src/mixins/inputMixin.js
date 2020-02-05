@@ -1,5 +1,6 @@
 import { css } from 'styled-components';
 import t from 'styled-token';
+import { outlineMixin } from './outlineMixin';
 
 export const inputMixin = css`
     display: inline-block;
@@ -15,5 +16,9 @@ export const inputMixin = css`
 
     &::placeholder {
         color: ${t('Inputs.borderColor')};
+    }
+
+    &:focus {
+        ${outlineMixin}
     }
 `;
