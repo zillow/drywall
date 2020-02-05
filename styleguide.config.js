@@ -34,8 +34,9 @@ module.exports = createStyleguideConfig({
         content: 'packages/styled-token/README.md'
     }],
     getComponentPathLine: componentPath => {
+        const pkg = componentPath.match(/packages\/(.*?)\//)[1];
         const name = path.basename(componentPath, '.jsx');
-        return `import { ${name} } from 'drywall';`;
+        return `import { ${name} } from '${pkg}';`;
     }
 }, {
     componentsSection: false,
