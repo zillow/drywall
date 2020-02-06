@@ -6,6 +6,7 @@ export { default as StyledCheckbox } from './components/StyledCheckbox/StyledChe
 export { default as StyledInput } from './components/StyledInput/StyledInput';
 export { default as StyledLabel } from './components/StyledLabel/StyledLabel';
 export { default as StyledRadio } from './components/StyledRadio/StyledRadio';
+export { default as StyledSelect } from './components/StyledSelect/StyledSelect';
 
 // Theme
 export { defaultTheme } from './defaultTheme';
