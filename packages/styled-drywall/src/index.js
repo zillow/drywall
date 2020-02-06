@@ -7,6 +7,7 @@ export { default as StyledInput } from './components/StyledInput/StyledInput';
 export { default as StyledLabel } from './components/StyledLabel/StyledLabel';
 export { default as StyledRadio } from './components/StyledRadio/StyledRadio';
 export { default as StyledSelect } from './components/StyledSelect/StyledSelect';
+export { default as StyledTextarea } from './components/StyledTextarea/StyledTextarea';
 
 // Theme
 export { defaultTheme } from './defaultTheme';
