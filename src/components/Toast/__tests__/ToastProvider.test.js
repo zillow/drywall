@@ -190,12 +190,13 @@ describe('<ToastProvider>', () => {
     it('enhances the toast components', () => {
         const testRenderer = TestRenderer.create(<ToastProvider>children</ToastProvider>);
 
+        const dismiss = jest.fn();
         const toastQueue = ToastQueue.mock.instances[0];
         toastQueue.getState.mockImplementation(() => [
             {
                 toastId: 'toast-id',
                 value: <div id="test-toast" />,
-                dismiss: 'dismiss',
+                dismiss,
                 pause: 'pause',
                 resume: 'resume',
             },
@@ -208,10 +209,40 @@ describe('<ToastProvider>', () => {
         const toast = testInstance.findByProps({ id: 'test-toast' });
         expect(toast.props).toStrictEqual({
             id: 'test-toast',
-            onClose: 'dismiss',
+            onClose: dismiss,
             onMouseEnter: 'pause',
             onMouseLeave: 'resume',
         });
+    });
+
+    it('does not clobber toast onClose prop', () => {
+        const testRenderer = TestRenderer.create(<ToastProvider>children</ToastProvider>);
+
+        const dismiss = jest.fn();
+        const onClose = jest.fn();
+        const toastQueue = ToastQueue.mock.instances[0];
+        toastQueue.getState.mockImplementation(() => [
+            {
+                toastId: 'toast-id',
+                value: <div id="test-toast" onClose={onClose} />,
+                dismiss,
+                pause: 'pause',
+                resume: 'resume',
+            },
+        ]);
+
+        const onQueueChange = toastQueue.subscribe.mock.calls[0][0];
+        onQueueChange();
+
+        const testInstance = testRenderer.root;
+        const toast = testInstance.findByProps({ id: 'test-toast' });
+        expect(dismiss).not.toHaveBeenCalled();
+        expect(onClose).not.toHaveBeenCalled();
+
+        // Close the toast
+        toast.props.onClose();
+        expect(dismiss).toHaveBeenCalledTimes(1);
+        expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('disables mouse over events on the toast', () => {
@@ -221,12 +252,13 @@ describe('<ToastProvider>', () => {
             </ToastProvider>
         );
 
+        const dismiss = jest.fn();
         const toastQueue = ToastQueue.mock.instances[0];
         toastQueue.getState.mockImplementation(() => [
             {
                 toastId: 'toast-id',
                 value: <div id="test-toast" />,
-                dismiss: 'dismiss',
+                dismiss,
                 pause: 'pause',
                 resume: 'resume',
             },
@@ -239,7 +271,7 @@ describe('<ToastProvider>', () => {
         const toast = testInstance.findByProps({ id: 'test-toast' });
         expect(toast.props).toStrictEqual({
             id: 'test-toast',
-            onClose: 'dismiss',
+            onClose: dismiss,
             onMouseEnter: undefined,
             onMouseLeave: undefined,
         });
