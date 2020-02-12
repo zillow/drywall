@@ -83,14 +83,21 @@ class ToastProviderClass extends React.Component {
             ...rest
         } = this.props;
 
-        const toasts = this.state.toasts.map(toast =>
-            React.cloneElement(toast.value, {
+        const toasts = this.state.toasts.map(toast => {
+            let onClose = toast.dismiss;
+            if (toast.value.props.onClose) {
+                onClose = () => {
+                    toast.value.props.onClose();
+                    toast.dismiss();
+                }
+            }
+            return React.cloneElement(toast.value, {
                 key: toast.toastId,
-                onClose: toast.dismiss,
+                onClose,
                 onMouseEnter: pauseOnMouseEnter ? toast.pause : undefined,
                 onMouseLeave: resumeOnMouseLeave ? toast.resume : undefined,
             })
-        );
+        });
 
         const toastContent = portalContent({ toasts });
 
