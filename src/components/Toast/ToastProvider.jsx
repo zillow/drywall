@@ -6,13 +6,17 @@ import getTheme from '../../theme/getTheme';
 import ToastQueue from '../../js/ToastQueue';
 import AnimatedList from '../AnimatedList/AnimatedList';
 
-const ToastContext = React.createContext();
+export const ToastContext = React.createContext();
 
-export const withToast = Component => props => (
-    <ToastContext.Consumer>
-        {context => <Component {...props} {...context} />}
-    </ToastContext.Consumer>
-);
+export const withToast = Component => {
+    const WithToast = React.forwardRef((props, ref) => (
+        <ToastContext.Consumer>
+            {context => <Component {...props} {...context} ref={ref} />}
+        </ToastContext.Consumer>
+    ));
+    WithToast.displayName = `WithToast(${Component.diplayName || Component.name || 'Component'})`;
+    return WithToast;
+};
 
 class ToastProviderClass extends React.Component {
     constructor(props) {

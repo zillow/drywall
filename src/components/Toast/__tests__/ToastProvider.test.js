@@ -42,6 +42,28 @@ describe('<ToastProvider>', () => {
         expect(toastQueue.enqueue).toHaveBeenCalledWith('toast', 'options');
     });
 
+    it('forwards refs with withToast', () => {
+        const Component = React.forwardRef((props, ref) => <div ref={ref} id="toast-component" />);
+        const HOC = withToast(Component);
+
+        const ref = React.createRef();
+        TestRenderer.create(
+            <ToastProvider>
+                <HOC ref={ref} />
+            </ToastProvider>,
+            {
+                createNodeMock: el => {
+                    if (el.props.id === 'toast-component') {
+                        return 'toast-component-ref';
+                    }
+                    return 'other-ref';
+                },
+            }
+        );
+
+        expect(ref.current).toBe('toast-component-ref');
+    });
+
     it('passes optionsFn to enqueue', () => {
         const optionsFn = jest.fn();
         const Component = () => <div id="toast-component" />;
