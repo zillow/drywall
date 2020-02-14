@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.6.1](https://github.com/zillow/drywall/compare/v0.6.0...v0.6.1) (2020-02-14)
+
+
+### Bug Fixes
+
+* **ToastProvider:** do not clobber `Toast` onClose prop ([b40adf1](https://github.com/zillow/drywall/commit/b40adf1))
+* forward refs when using the `withToast` HOC and export `ToastContext` ([7834b33](https://github.com/zillow/drywall/commit/7834b33))
+
+
+
 ## [0.6.0](https://github.com/zillow/drywall/compare/v0.5.0...v0.6.0) (2019-08-28)
 
 
