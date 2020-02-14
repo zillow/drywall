@@ -1,11 +1,11 @@
-import lolex from 'lolex';
+import FakeTimers from '@sinonjs/fake-timers';
 import ToastQueue from '../ToastQueue';
 
 describe('ToastQueue', () => {
     let clock;
 
     beforeEach(() => {
-        clock = lolex.install();
+        clock = FakeTimers.install();
     });
 
     afterEach(() => {

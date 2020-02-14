@@ -93,14 +93,14 @@ class ToastProviderClass extends React.Component {
                 onClose = () => {
                     toast.value.props.onClose();
                     toast.dismiss();
-                }
+                };
             }
             return React.cloneElement(toast.value, {
                 key: toast.toastId,
                 onClose,
                 onMouseEnter: pauseOnMouseEnter ? toast.pause : undefined,
                 onMouseLeave: resumeOnMouseLeave ? toast.resume : undefined,
-            })
+            });
         });
 
         const toastContent = portalContent({ toasts });
