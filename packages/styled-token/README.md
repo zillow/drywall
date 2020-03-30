@@ -100,18 +100,18 @@ Since we are returning an interpolation and not a value, there are a few [caveat
 
 #### Arguments
 
-1. `path` (`string`|`array`): A string path to the token value, or an array of paths where the first defined token value from the list will be used.
+1. `path` (`string`|`array`|`object`): A string path to the token value, an array of paths, or an object of keyed paths. See below for [string](#examples-string-syntax), [array](#examples-array-syntax), and [object](#examples-object-syntax) syntax examples.
 2. `options` (`object`): Options for the token helper.
     * `options.namespace` (`string`): The namespace to pull the value from. This will override any namespace defined on the theme.
     * `options.defaultValue` (`any`): A fallback value that will be used if the `path` is not defined.
 
-3. `callback` (`function`): A callback that will be called with the token value.
+3. `callback` (`function`): A callback that will be called with the token value(s).
 
 #### Returns
 
 `Interpolation`: A styled-components [`TaggedTemplateLiteral`](https://styled-components.com/docs/api#taggedtemplateliteral) interpolation.
 
-#### Examples
+#### Examples: String Syntax
 
 ```js static
 // Access nested object properties with ".", or arrays with "[]"
@@ -122,9 +122,9 @@ const Link = styled.a`
 ```
 
 ```js static
-// Use "colors.brand" if it is defined, otherwise use "colors.blue"
-const Link = styled.a`
-    color: ${token(['colors.brand', 'colors.blue'])};
+// Modify the token value after it is retrieved
+const Button = styled.button`
+    padding: ${token('space.lg', t => t * 2)}px;
 `;
 ```
 
@@ -143,17 +143,39 @@ const Link = styled.a`
 ```
 
 ```js static
-// Modify the token value after it is retrieved
-const Button = styled.button`
-    padding: ${token('space.lg', t => t * 2)}px;
-`;
-```
-
-```js static
 // Pull the "space.lg" token from the "condensed" namespace, using "24" if it is not defined,
 // and then multiplying the result by two
 const Button = styled.button`
     padding: ${token('space.lg', { namespace: 'condensed', defaultValue: 24 }, t => t * 2)}px;
+`;
+```
+
+#### Examples: Array Syntax
+
+```js static
+// Use "colors.brand" if it is defined, otherwise use "colors.blue"
+const Link = styled.a`
+    color: ${token(['colors.brand', 'colors.blue'])};
+`;
+```
+
+```js static
+// Pull multiple values from the theme using an array
+const Button = styled.button`
+    padding: ${token(['space.lg', 'space.suffix'], (val, values) => `${values[0] * 2}${values[1]}`)};
+`;
+```
+
+#### Examples: Object Syntax
+
+```js static
+// Pull multiple values from the theme using an object (with fallback border colors)
+const Button = styled.button`
+    border: ${token({
+        borderColor: ['colors.brand', 'colors.blue'],
+        borderWidth: 'button.borderWidth',
+        borderStyle: 'button.borderStyle'
+    }, ({ borderColor, borderWidth, borderStyle }) => `${borderWidth} ${borderStyle} ${borderColor}`)};
 `;
 ```
 

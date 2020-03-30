@@ -96,6 +96,13 @@ describe('token', () => {
         expect(token('foo["bar.baz"]')(props)).toBe('BARBAZ');
     });
 
+    it('throws an error with an unsupported path type', () => {
+        const props = {};
+        expect(() => {
+            token(() => {})(props);
+        }).toThrow('`path` should be one of `string`, `array`, `object`');
+    });
+
     describe('namespacing', () => {
         it('defines a namespace on the theme with NAMESPACE', () => {
             const props = {
@@ -180,9 +187,16 @@ describe('token', () => {
             };
             expect(token('sm', { namespace: 'sizes' }, t => t * 2)(props)).toBe(16);
         });
+
+        it('only passes one argument to the callback', () => {
+            const props = {};
+            token('sizes.md', (...args) => {
+                expect(args).toHaveLength(1);
+            })(props);
+        });
     });
 
-    describe('fallbacks', () => {
+    describe('array syntax', () => {
         it('uses an array for token fallbacks', () => {
             const props = {
                 theme: {
@@ -230,6 +244,115 @@ describe('token', () => {
                     defaultValue: '#fallbackblue',
                 })(props)
             ).toBe('#fallbackblue');
+        });
+
+        it('passes the derived value and an array of values to the callback', () => {
+            const props = {
+                theme: {
+                    colors: {
+                        blue: '#blue',
+                        lightblue: '#lightblue',
+                    },
+                },
+            };
+            expect(
+                token(['colors.darkblue', 'colors.blue', 'colors.lightblue'], (value, values) => {
+                    expect(value).toBe('#blue');
+                    expect(values).toStrictEqual([undefined, '#blue', '#lightblue']);
+                    return '#red';
+                })(props)
+            ).toBe('#red');
+        });
+    });
+
+    describe('object syntax', () => {
+        it('throws an error when no callback is provided', () => {
+            const props = {};
+            expect(() => {
+                token({
+                    borderColor: ['colors.darkblue', 'colors.blue', 'colors.lightblue'],
+                    borderWidth: 'borders.width',
+                    borderStyle: 'borders.style',
+                })(props);
+            }).toThrow('`callback` is required when `path` is an `object`');
+        });
+
+        it('passes the map of values to the callback', () => {
+            const props = {
+                theme: {
+                    borders: {
+                        width: '1px',
+                        style: 'solid',
+                    },
+                    colors: {
+                        blue: '#blue',
+                        lightblue: '#lightblue',
+                    },
+                },
+            };
+            expect(
+                token(
+                    {
+                        borderColor: 'colors.blue',
+                        borderWidth: 'borders.width',
+                        borderStyle: 'borders.style',
+                    },
+                    values => {
+                        expect(values).toStrictEqual({
+                            borderColor: '#blue',
+                            borderWidth: '1px',
+                            borderStyle: 'solid',
+                        });
+
+                        return `${values.borderWidth} ${values.borderStyle} ${values.borderColor}`;
+                    }
+                )(props)
+            ).toBe('1px solid #blue');
+        });
+
+        it('uses a fallback array in the object map', () => {
+            const props = {
+                theme: {
+                    borders: {
+                        width: '1px',
+                        style: 'solid',
+                    },
+                    colors: {
+                        blue: '#blue',
+                        lightblue: '#lightblue',
+                    },
+                },
+            };
+            expect(
+                token(
+                    {
+                        borderColor: ['colors.darkblue', 'colors.blue', 'colors.lightblue'],
+                        borderWidth: 'borders.width',
+                        borderStyle: 'borders.style',
+                    },
+                    values => {
+                        expect(values).toStrictEqual({
+                            borderColor: '#blue',
+                            borderWidth: '1px',
+                            borderStyle: 'solid',
+                        });
+
+                        return `${values.borderWidth} ${values.borderStyle} ${values.borderColor}`;
+                    }
+                )(props)
+            ).toBe('1px solid #blue');
+        });
+
+        it('only passes one argument to the callback', () => {
+            const props = {};
+            token(
+                {
+                    color: 'colors.blue',
+                },
+                (...args) => {
+                    expect(args).toHaveLength(1);
+                }
+            )(props);
         });
     });
 });
