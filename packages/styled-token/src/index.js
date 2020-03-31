@@ -23,10 +23,7 @@ const getValues = (path, theme) => {
         const properties = stringToPath(p);
         for (let j = 0; j < properties.length && typeof currentValue !== 'undefined'; j += 1) {
             const property = properties[j];
-            // Skip empty string properties
-            if (property) {
-                currentValue = currentValue[property];
-            }
+            currentValue = currentValue[property];
         }
 
         // Set outer value to the first defined value

@@ -96,6 +96,19 @@ describe('token', () => {
         expect(token('foo["bar.baz"]')(props)).toBe('BARBAZ');
     });
 
+    it('tries to pull a property when the object key is an empty string', () => {
+        const props = {
+            theme: {
+                foo: {
+                    '': {
+                        bar: 'emptybar',
+                    },
+                },
+            },
+        };
+        expect(token('foo[""].bar')(props)).toBe('emptybar');
+    });
+
     it('throws an error with an unsupported path type', () => {
         const props = {};
         expect(() => {
