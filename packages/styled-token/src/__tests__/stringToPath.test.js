@@ -20,4 +20,8 @@ describe('stringToPath', () => {
     it('parses array access to object with a period in the property', () => {
         expect(stringToPath(`foo['bar.baz'].bat`)).toStrictEqual(['foo', 'bar.baz', 'bat']);
     });
+
+    it('parses an empty string key', () => {
+        expect(stringToPath(`foo[''].bat`)).toStrictEqual(['foo', '', 'bat']);
+    });
 });
