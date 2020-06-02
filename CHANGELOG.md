@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [0.7.0-constellation](https://github.com/zillow/drywall/compare/v0.6.1...v0.7.0-constellation) (2020-06-02)
+
+
+### Features
+
+* remove component style theming and the `getTheme` helper ([35ec054](https://github.com/zillow/drywall/commit/35ec054))
+
+
+### BREAKING CHANGES
+
+* The ability to pass component styles via the theme has been removed since it
+severely limits the ability to tree-shake unused styles.
+
+
+
 ### [0.6.1](https://github.com/zillow/drywall/compare/v0.6.0...v0.6.1) (2020-02-14)
 
 
