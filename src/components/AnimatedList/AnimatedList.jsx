@@ -2,11 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { animated, Transition } from 'react-spring/renderprops.cjs';
-import getTheme from '../../theme/getTheme';
 
-const Item = styled(animated.li)`
-    ${getTheme('AnimatedListItem')}
-`;
+const Item = styled(animated.li)``;
 
 /**
  * An `AnimatedList` provides a default animation for addition and removal of items in a list.
@@ -37,9 +34,7 @@ const AnimatedList = styled(({ children, enter, from, leave, ...rest }) => {
     }
 
     return <ul {...rest}>{content}</ul>;
-})`
-    ${getTheme('AnimatedList')}
-`;
+})``;
 
 AnimatedList.propTypes = {
     /**

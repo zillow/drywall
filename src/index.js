@@ -9,4 +9,3 @@ export {
     withToast,
 } from './components/Toast/ToastProvider';
 export { default as withNamespace } from './theme/withNamespace';
-export { default as getTheme } from './theme/getTheme';

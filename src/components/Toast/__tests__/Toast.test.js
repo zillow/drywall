@@ -1,29 +1,12 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { ThemeProvider, css, isStyledComponent } from 'styled-components';
+import { isStyledComponent } from 'styled-components';
 import { Toast } from '../../../index';
-import { createTestTheme } from '../../../test/util';
 
 describe('<Toast>', () => {
     it('can render without theme', () => {
         const testRenderer = TestRenderer.create(<Toast body="Toast message" />);
         expect(testRenderer.toJSON()).toMatchSnapshot();
-    });
-
-    it('can render with theme', () => {
-        const theme = createTestTheme({
-            Toast: css`
-                color: red;
-            `,
-        });
-        const testRenderer = TestRenderer.create(
-            <ThemeProvider theme={theme}>
-                <Toast body="Toast message" />
-            </ThemeProvider>
-        );
-        const tree = testRenderer.toJSON();
-        expect(tree).toHaveStyleRule('color', 'red');
-        expect(tree).toMatchSnapshot();
     });
 
     it('is a styled-component', () => {

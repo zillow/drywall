@@ -1,29 +1,12 @@
 import React from 'react';
 import TestRenderer from 'react-test-renderer';
-import { ThemeProvider, css, isStyledComponent } from 'styled-components';
+import { isStyledComponent } from 'styled-components';
 import { MediaObject } from '../../../index';
-import { createTestTheme } from '../../../test/util';
 
 describe('<MediaObject>', () => {
     it('can render without theme', () => {
         const testRenderer = TestRenderer.create(<MediaObject media="media">body</MediaObject>);
         expect(testRenderer.toJSON()).toMatchSnapshot();
-    });
-
-    it('can render with theme', () => {
-        const theme = createTestTheme({
-            MediaObject: css`
-                color: red;
-            `,
-        });
-        const testRenderer = TestRenderer.create(
-            <ThemeProvider theme={theme}>
-                <MediaObject media="media">body</MediaObject>
-            </ThemeProvider>
-        );
-        const tree = testRenderer.toJSON();
-        expect(tree).toHaveStyleRule('color', 'red');
-        expect(tree).toMatchSnapshot();
     });
 
     it('is a styled-component', () => {

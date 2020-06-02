@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import getTheme from '../../theme/getTheme';
 import ToastQueue from '../../js/ToastQueue';
 import AnimatedList from '../AnimatedList/AnimatedList';
 
@@ -132,9 +131,7 @@ class ToastProviderClass extends React.Component {
  * It is possible to have multiple providers, but you must be careful with the positions such that
  * they do not overlap. It is recommended that you only have one provider per application.
  */
-const ToastProvider = styled(ToastProviderClass)`
-    ${getTheme('ToastProvider')}
-`;
+const ToastProvider = styled(ToastProviderClass)``;
 
 // This is a little unusual -- it allows both eslint to validate and styleguidist to parse props.
 // eslint-disable-next-line no-multi-assign

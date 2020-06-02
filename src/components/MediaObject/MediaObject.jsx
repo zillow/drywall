@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import getTheme from '../../theme/getTheme';
 import { logDeprecation } from '../../js/util/logging';
 
 // This wrapper is used for nothing other than filtering props that are passed to it so they don't
@@ -35,16 +34,10 @@ const MediaObject = styled(props => {
     // Remove props that bleed through to the DOM
     const { direction, media, ...rest } = props;
     return <StyledMediaObject {...rest}>{content}</StyledMediaObject>;
-})`
-    ${getTheme('MediaObject')}
-`;
+})``;
 
-MediaObject.Body = styled.div`
-    ${getTheme('MediaObjectBody')}
-`;
-MediaObject.Media = styled.div`
-    ${getTheme('MediaObjectMedia')}
-`;
+MediaObject.Body = styled.div``;
+MediaObject.Media = styled.div``;
 
 MediaObject.propTypes = {
     /**

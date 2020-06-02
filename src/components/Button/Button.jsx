@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import getTheme from '../../theme/getTheme';
 
 /**
  * An HTML `<button>` element.
@@ -14,9 +13,7 @@ import getTheme from '../../theme/getTheme';
  * * https://lightningdesignsystem.com/components/buttons/
  * * https://atlaskit.atlassian.com/packages/core/button
  */
-const Button = styled.button`
-    ${getTheme('Button')}
-`;
+const Button = styled.button``;
 
 Button.propTypes = {
     /**

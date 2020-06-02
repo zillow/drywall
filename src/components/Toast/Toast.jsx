@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import CloseButton from '../CloseButton/CloseButton';
-import getTheme from '../../theme/getTheme';
 
 /**
  * Toast is a subtle messages that appears at the top or bottom of the screen.
@@ -61,25 +60,13 @@ const Toast = styled(props => {
     }
 
     return <div {...rest}>{childrenContent}</div>;
-})`
-    ${getTheme('Toast')}
-`;
+})``;
 
-Toast.Icon = styled.div`
-    ${getTheme('ToastIcon')}
-`;
-Toast.Action = styled.div`
-    ${getTheme('ToastAction')}
-`;
-Toast.Close = styled.div`
-    ${getTheme('ToastClose')}
-`;
-Toast.Body = styled.div`
-    ${getTheme('ToastBody')}
-`;
-Toast.Header = styled.header`
-    ${getTheme('ToastHeader')}
-`;
+Toast.Icon = styled.div``;
+Toast.Action = styled.div``;
+Toast.Close = styled.div``;
+Toast.Body = styled.div``;
+Toast.Header = styled.header``;
 
 Toast.propTypes = {
     /**

@@ -1,55 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<AnimatedList> can render with theme 1`] = `
-.c0 {
-  list-style: none;
-}
-
-<ul
-  className="c0"
->
-  <li
-    className="AnimatedList__Item-sdziqv-0 "
-    style={
-      Object {
-        "height": "auto",
-        "opacity": 1,
-        "position": "absolute",
-        "visibility": "hidden",
-      }
-    }
-  >
-    one
-  </li>
-  <li
-    className="AnimatedList__Item-sdziqv-0 "
-    style={
-      Object {
-        "height": "auto",
-        "opacity": 1,
-        "position": "absolute",
-        "visibility": "hidden",
-      }
-    }
-  >
-    two
-  </li>
-  <li
-    className="AnimatedList__Item-sdziqv-0 "
-    style={
-      Object {
-        "height": "auto",
-        "opacity": 1,
-        "position": "absolute",
-        "visibility": "hidden",
-      }
-    }
-  >
-    three
-  </li>
-</ul>
-`;
-
 exports[`<AnimatedList> can render without theme 1`] = `
 <ul
   className="AnimatedList-sdziqv-1 "
