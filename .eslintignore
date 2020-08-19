@@ -1,5 +1,6 @@
 /coverage
 lib/
+es/
 /styleguide
 jest.config.js
 styleguide.config.js
