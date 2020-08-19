@@ -104,6 +104,7 @@ Since we are returning an interpolation and not a value, there are a few [caveat
 2. `options` (`object`): Options for the token helper.
     * `options.namespace` (`string`): The namespace to pull the value from. This will override any namespace defined on the theme.
     * `options.defaultValue` (`any`): A fallback value that will be used if the `path` is not defined.
+    * `options.caching` (`bool`): Enable caching of results. Do not use this if you mutate the theme directly.
 
 3. `callback` (`function`): A callback that will be called with the token value(s).
 
@@ -200,6 +201,19 @@ const theme = {
 token('fontColor') // "black"
 token('fontColor', { namespace: 'dark' }) // "white"
 token('fontColor', { namespace: '' }) // "darkgray"
+```
+
+## Global Options
+
+[API options](#api) can be specified globally by adding a `STYLED_TOKEN` object on the theme. The most common use for this is to globally enable the `caching` option. You might also find it useful to set `defaultValue` globally (by default it will fall back to `undefined`).
+
+```js static
+const theme = {
+    STYLED_TOKEN: {
+        caching: true,
+        defaultValue: '',
+    }
+};
 ```
 
 ## Caveats
