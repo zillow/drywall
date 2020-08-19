@@ -1,14 +1,18 @@
 import { stringToPath } from './stringToPath';
 
+// Use a separate cache for each theme object
+const caches = new WeakMap();
+
 /**
  * Helper function for getting the value for a path or a fallback array.
  *
  * @method
  * @param path {string|array}
  * @param theme {object} The theme namespace.
+ * @param caching {bool} Pull the value from cache if it exists.
  * @return {object} The derived value and an array of all values.
  */
-const getValues = (path, theme) => {
+const getValues = (path, theme, caching) => {
     let paths = path;
     if (typeof path === 'string') {
         paths = [path];
@@ -16,14 +20,32 @@ const getValues = (path, theme) => {
 
     // Translate the array of paths to an array of values
     let value;
-    const values = paths.map(p => {
-        let currentValue = theme;
+    const values = [];
 
-        // Traverse the path
-        const properties = stringToPath(p);
-        for (let j = 0; j < properties.length && typeof currentValue !== 'undefined'; j += 1) {
-            const property = properties[j];
-            currentValue = currentValue[property];
+    for (let i = 0; i < paths.length && theme; i += 1) {
+        const p = paths[i];
+
+        let currentValue;
+
+        // Get the cache for this theme object if it exists, or initialize the cache
+        let cache = caches.get(theme);
+        if (cache) {
+            if (caching) {
+                currentValue = cache[p];
+            }
+        } else {
+            cache = {};
+            caches.set(theme, cache);
+        }
+
+        if (typeof currentValue === 'undefined') {
+            // Traverse the path
+            currentValue = theme;
+            const properties = stringToPath(p);
+            for (let j = 0; j < properties.length && typeof currentValue !== 'undefined'; j += 1) {
+                const property = properties[j];
+                currentValue = currentValue[property];
+            }
         }
 
         // Set outer value to the first defined value
@@ -31,8 +53,11 @@ const getValues = (path, theme) => {
             value = currentValue;
         }
 
-        return currentValue;
-    });
+        if (caching) {
+            cache[p] = currentValue;
+        }
+        values[i] = currentValue;
+    }
 
     return {
         value,
@@ -59,6 +84,16 @@ export default (path, options = {}, callback) => props => {
 
     let { theme } = props;
 
+    // Check for global options
+    const globalOptions = theme && theme.STYLED_TOKEN;
+    if (globalOptions) {
+        // eslint-disable-next-line no-param-reassign
+        options = {
+            ...globalOptions,
+            ...options,
+        };
+    }
+
     // Check for namespace
     let namespace = theme && theme.NAMESPACE;
     if (typeof options.namespace === 'string') {
@@ -74,7 +109,7 @@ export default (path, options = {}, callback) => props => {
     let value;
     let values;
     if (typeof path === 'string' || Array.isArray(path)) {
-        const results = getValues(path, theme);
+        const results = getValues(path, theme, options.caching);
         // eslint-disable-next-line prefer-destructuring
         value = results.value;
         // eslint-disable-next-line prefer-destructuring
@@ -86,7 +121,7 @@ export default (path, options = {}, callback) => props => {
 
         value = {};
         Object.keys(path).forEach(key => {
-            const results = getValues(path[key], theme);
+            const results = getValues(path[key], theme, options.caching);
             value[key] = results.value;
         });
     } else {

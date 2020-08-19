@@ -7,6 +7,8 @@ const rePropName = /[^.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?
 /** Used to match backslashes in property paths. */
 const reEscapeChar = /\\(\\)?/g;
 
+const cache = {};
+
 /**
  * Converts `string` to a property path array.
  *
@@ -15,6 +17,10 @@ const reEscapeChar = /\\(\\)?/g;
  * @returns {Array} Returns the property path array.
  */
 export const stringToPath = string => {
+    if (cache[string]) {
+        return cache[string];
+    }
+
     const result = [];
     if (string.charCodeAt(0) === 46 /* . */) {
         result.push('');
@@ -22,5 +28,7 @@ export const stringToPath = string => {
     string.replace(rePropName, (match, number, quote, subString) => {
         result.push(quote ? subString.replace(reEscapeChar, '$1') : number || match);
     });
+
+    cache[string] = result;
     return result;
 };

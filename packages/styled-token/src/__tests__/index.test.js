@@ -116,6 +116,89 @@ describe('token', () => {
         }).toThrow('`path` should be one of `string`, `array`, `object`');
     });
 
+    it('uses a global defaultValue option', () => {
+        const props = {
+            theme: {
+                STYLED_TOKEN: {
+                    defaultValue: 'global default',
+                },
+            },
+        };
+        expect(token('missing')(props)).toBe('global default');
+    });
+
+    it('overrides a global defaultValue option', () => {
+        const props = {
+            theme: {
+                STYLED_TOKEN: {
+                    defaultValue: 'global default',
+                },
+            },
+        };
+        expect(token('missing', { defaultValue: 'default' })(props)).toBe('default');
+    });
+
+    describe('caching', () => {
+        it('does not use caching by default', () => {
+            const props = {
+                theme: {
+                    foo: 'FOO',
+                },
+            };
+            expect(token('foo')(props)).toBe('FOO');
+            props.theme.foo = 'BAR';
+            // Should return 'BAR' since the cache is disabled
+            expect(token('foo', { caching: false })(props)).toBe('BAR');
+        });
+
+        it('enables global caching', () => {
+            const props = {
+                theme: {
+                    STYLED_TOKEN: {
+                        caching: true,
+                    },
+                    foo: 'FOO',
+                },
+            };
+            expect(token('foo')(props)).toBe('FOO');
+            props.theme.foo = 'BAR';
+            // Should still return 'FOO' from cache since the theme object is the same
+            expect(token('foo')(props)).toBe('FOO');
+        });
+
+        it('overrides global caching', () => {
+            const props = {
+                theme: {
+                    STYLED_TOKEN: {
+                        caching: true,
+                    },
+                    foo: 'FOO',
+                },
+            };
+            expect(token('foo')(props)).toBe('FOO');
+            props.theme.foo = 'BAR';
+            // Should return 'BAR' since the cache is disabled
+            expect(token('foo', { caching: false })(props)).toBe('BAR');
+        });
+
+        it('uses a different cache for each theme', () => {
+            const props = {
+                theme: {
+                    STYLED_TOKEN: {
+                        caching: true,
+                    },
+                    foo: 'FOO',
+                },
+            };
+            expect(token('foo')(props)).toBe('FOO');
+            props.theme = {
+                foo: 'BAR',
+            };
+            // Should return 'BAR' since the theme object changed
+            expect(token('foo')(props)).toBe('BAR');
+        });
+    });
+
     describe('namespacing', () => {
         it('defines a namespace on the theme with NAMESPACE', () => {
             const props = {
