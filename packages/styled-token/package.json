@@ -15,7 +15,7 @@
     "token"
   ],
   "author": "brians@zillowgroup.com",
-  "homepage": "https://github.com/zillow/drywall/tree/master/packages/styled-token",
+  "homepage": "https://github.com/zillow/drywall/tree/next/packages/styled-token",
   "license": "MIT",
   "repository": {
     "type": "git",
