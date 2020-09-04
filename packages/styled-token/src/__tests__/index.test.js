@@ -326,6 +326,21 @@ describe('token', () => {
             expect(token('missing', { defaultValue: 'default' })(props)).toBe('default');
         });
 
+        it('uses options.defaultValue with object syntax', () => {
+            const props = {};
+            token(
+                {
+                    foo: 'foo',
+                    bar: 'bar',
+                },
+                { defaultValue: 'default' },
+                tokens => {
+                    expect(tokens.foo).toBe('default');
+                    expect(tokens.bar).toBe('default');
+                }
+            )(props);
+        });
+
         it('uses both array and options.defaultValue fallbacks', () => {
             const props = {
                 theme: {

@@ -122,7 +122,11 @@ export default (path, options = {}, callback) => props => {
         value = {};
         Object.keys(path).forEach(key => {
             const results = getValues(path[key], theme, options.caching);
-            value[key] = results.value;
+            if (typeof results.value === 'undefined') {
+                value[key] = options.defaultValue;
+            } else {
+                value[key] = results.value;
+            }
         });
     } else {
         throw new Error('`path` should be one of `string`, `array`, `object`');
