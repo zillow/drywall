@@ -1,6 +1,6 @@
 {
   "name": "styled-token",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A helper function for accessing token values from a styled-components theme",
   "main": "lib/index.js",
   "module": "lib/index.esm.js",
