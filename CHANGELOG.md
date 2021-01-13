@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.1-constellation](https://github.com/zillow/drywall/compare/v0.7.0-constellation...v0.7.1-constellation) (2021-01-13)
+
+
+### Bug Fixes
+
+* **Toast:** do not clobber the `onClick` prop of a passed in `closeButton` ([3ca7ee3](https://github.com/zillow/drywall/commit/3ca7ee3))
+
+
+
 ## [0.7.0-constellation](https://github.com/zillow/drywall/compare/v0.6.1...v0.7.0-constellation) (2020-06-02)
 
 
