@@ -40,6 +40,16 @@ const Toast = styled(props => {
         return null;
     }
 
+    const closeCallback = React.useCallback(() => {
+        // Call existing click function if it exists
+        if (closeButton && closeButton.props && typeof closeButton.props.onClick === 'function') {
+            closeButton.props.onClick();
+        }
+        if (typeof onClose === 'function') {
+            onClose();
+        }
+    }, [closeButton, onClose]);
+
     let childrenContent = children;
     if (typeof children === 'function') {
         let iconContent = icon;
@@ -48,8 +58,8 @@ const Toast = styled(props => {
         }
 
         let closeContent = closeButton;
-        if (closeButton) {
-            closeContent = React.cloneElement(closeButton, { onClick: onClose });
+        if (closeButton && onClose) {
+            closeContent = React.cloneElement(closeButton, { onClick: closeCallback });
         }
 
         childrenContent = children({

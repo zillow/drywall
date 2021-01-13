@@ -82,8 +82,14 @@ describe('<Toast>', () => {
         TestRenderer.create(<Toast onClose={onClose}>{renderFn}</Toast>);
 
         expect(renderFn).toHaveBeenCalledTimes(1);
+        expect(onClose).not.toHaveBeenCalled();
+
         const { closeButton } = renderFn.mock.calls[0][0];
-        expect(closeButton.props.onClick).toBe(onClose);
+
+        // simulate click
+        closeButton.props.onClick();
+
+        expect(onClose).toHaveBeenCalledTimes(1);
     });
 
     it('customizes the layout with a children render node', () => {
@@ -146,5 +152,31 @@ describe('<Toast>', () => {
         const testInstance = testRenderer.root;
         const toast = testInstance.findByType('div');
         expect(toast.props.role).toBe('alert');
+    });
+
+    it('does not clobber the onClick prop of a passed in close button', () => {
+        const onClose = jest.fn();
+        const onClick = jest.fn();
+        const testRenderer = TestRenderer.create(
+            <Toast
+                closeButton={
+                    <button type="button" onClick={onClick}>
+                        close
+                    </button>
+                }
+                onClose={onClose}
+            />
+        );
+        const testInstance = testRenderer.root;
+        const button = testInstance.findByType('button');
+
+        expect(onClose).not.toHaveBeenCalled();
+        expect(onClick).not.toHaveBeenCalled();
+
+        // simulate click
+        button.props.onClick();
+
+        expect(onClose).toHaveBeenCalledTimes(1);
+        expect(onClick).toHaveBeenCalledTimes(1);
     });
 });
