@@ -1,6 +1,6 @@
 {
   "name": "drywall",
-  "version": "0.7.2-constellation",
+  "version": "0.7.3-constellation",
   "description": "drywall component library",
   "main": "lib/index.js",
   "module": "es/index.js",

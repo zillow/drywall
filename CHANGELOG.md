@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.7.3-constellation](https://github.com/zillow/drywall/compare/v0.7.1-constellation...v0.7.3-constellation) (2021-07-19)
+
+
+### Features
+
+* Update peer dependencies to allow for React 17, which does not have breaking changes impacting this package ([fd3b758](https://github.com/zillow/drywall/commit/fd3b758))
+
+
+
 ### [0.7.2-constellation](https://github.com/zillow/drywall/compare/v0.7.1-constellation...v0.7.2-constellation) (2021-07-19)
 
 
