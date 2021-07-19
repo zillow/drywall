@@ -11,8 +11,10 @@ describe('drywall exports', () => {
             const basename = path.basename(component, '.jsx');
             Object.keys(module).forEach(key => {
                 if (key === 'default') {
+                    // eslint-disable-next-line zillow/jest/no-conditional-expect
                     expect(drywall).toHaveProperty(basename);
                 } else {
+                    // eslint-disable-next-line zillow/jest/no-conditional-expect
                     expect(drywall).toHaveProperty(key);
                 }
             });

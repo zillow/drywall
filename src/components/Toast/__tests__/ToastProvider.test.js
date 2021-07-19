@@ -10,18 +10,21 @@ jest.mock('react-dom', () => ({
 
 jest.mock('../../../js/ToastQueue');
 
+const getEventListenerCalls = (fn, type) => fn.mock.calls.filter(call => call[0] === type);
+
 describe('<ToastProvider>', () => {
     beforeEach(() => {
         jest.clearAllMocks();
-        global.window = {
-            addEventListener: jest.fn(),
-            removeEventListener: jest.fn(),
-        };
-    });
 
-    afterEach(() => {
-        delete global.document;
-        delete global.window;
+        // https://github.com/facebook/jest/issues/890#issuecomment-209698782
+        Object.defineProperty(window, 'addEventListener', {
+            writable: true,
+            value: jest.fn(),
+        });
+        Object.defineProperty(window, 'removeEventListener', {
+            writable: true,
+            value: jest.fn(),
+        });
     });
 
     it('provides enqueueToast context', () => {
@@ -113,12 +116,10 @@ describe('<ToastProvider>', () => {
     });
 
     it('creates a portal into the default body', () => {
-        const body = 'body';
-        global.document = { body };
         TestRenderer.create(<ToastProvider>children</ToastProvider>);
 
         expect(ReactDOM.createPortal).toHaveBeenCalledTimes(1);
-        expect(ReactDOM.createPortal.mock.calls[0][1]).toBe(body);
+        expect(ReactDOM.createPortal.mock.calls[0][1]).toBe(document.body);
     });
 
     it('creates a portal into the specified container', () => {
@@ -142,8 +143,9 @@ describe('<ToastProvider>', () => {
             </ToastProvider>
         );
 
-        expect(global.window.addEventListener).toHaveBeenCalledTimes(1);
-        const call = global.window.addEventListener.mock.calls[0];
+        const calls = getEventListenerCalls(window.addEventListener, 'blur');
+        expect(calls).toHaveLength(1);
+        const call = calls[0];
         expect(call[0]).toBe('blur');
         const onWindowBlur = call[1];
 
@@ -161,8 +163,9 @@ describe('<ToastProvider>', () => {
             </ToastProvider>
         );
 
-        expect(global.window.addEventListener).toHaveBeenCalledTimes(1);
-        const call = global.window.addEventListener.mock.calls[0];
+        const calls = getEventListenerCalls(window.addEventListener, 'focus');
+        expect(calls).toHaveLength(1);
+        const call = calls[0];
         expect(call[0]).toBe('focus');
         const onWindowFocus = call[1];
 
@@ -180,7 +183,8 @@ describe('<ToastProvider>', () => {
             </ToastProvider>
         );
 
-        expect(global.window.addEventListener).not.toHaveBeenCalled();
+        expect(getEventListenerCalls(window.addEventListener, 'focus')).toHaveLength(0);
+        expect(getEventListenerCalls(window.addEventListener, 'blur')).toHaveLength(0);
     });
 
     it('removes event listeners on unmount', () => {
@@ -190,9 +194,11 @@ describe('<ToastProvider>', () => {
             </ToastProvider>
         );
 
-        expect(global.window.removeEventListener).not.toHaveBeenCalled();
+        expect(getEventListenerCalls(window.removeEventListener, 'focus')).toHaveLength(0);
+        expect(getEventListenerCalls(window.removeEventListener, 'blur')).toHaveLength(0);
         testRenderer.unmount();
-        expect(global.window.removeEventListener).toHaveBeenCalledTimes(2);
+        expect(getEventListenerCalls(window.removeEventListener, 'focus')).toHaveLength(1);
+        expect(getEventListenerCalls(window.removeEventListener, 'blur')).toHaveLength(1);
     });
 
     it('subscribes to queue changes', () => {
@@ -309,15 +315,5 @@ describe('<ToastProvider>', () => {
         expect(unsubscribe).not.toHaveBeenCalled();
         testRenderer.unmount();
         expect(unsubscribe).toHaveBeenCalledTimes(1);
-    });
-
-    it('does not error when window does not exist', () => {
-        delete global.window;
-
-        expect(() => {
-            const testRenderer = TestRenderer.create(<ToastProvider>children</ToastProvider>);
-
-            testRenderer.unmount();
-        }).not.toThrow();
     });
 });

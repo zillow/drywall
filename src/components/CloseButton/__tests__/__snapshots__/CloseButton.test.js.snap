@@ -2,12 +2,12 @@
 
 exports[`<CloseButton> can render without theme 1`] = `
 <button
-  className="CloseButton-sqbalp-0 "
+  className="CloseButton-sc-sqbalp-0"
 />
 `;
 
 exports[`<CloseButton> supports the as prop 1`] = `
 <a
-  className="CloseButton-sqbalp-0 "
+  className="CloseButton-sc-sqbalp-0"
 />
 `;

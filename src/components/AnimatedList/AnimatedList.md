@@ -1,25 +1,21 @@
 ```jsx
 import { Button } from '../../index';
 
-initialState = {
-    items: []
-};
+const [items, setItems] = React.useState([]);
 
 const onAddClick = () => {
-    setState({
-        items: [ ...state.items, Math.random() ]
-    });
+    setItems([ ...items, Math.random() ]);
 };
 
 const onRemoveClick = () => {
-    setState({ items: state.items.slice(1) });
+    setItems(items.slice(1));
 };
 
 <React.Fragment>
     <Button onClick={onAddClick}>Add</Button>{' '}
     <Button onClick={onRemoveClick}>Remove</Button>
     <AnimatedList>
-        {state.items}
+        {items}
     </AnimatedList>
 </React.Fragment>
 ```

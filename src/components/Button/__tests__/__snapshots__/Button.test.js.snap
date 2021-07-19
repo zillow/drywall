@@ -2,7 +2,7 @@
 
 exports[`<Button> can render without theme 1`] = `
 <button
-  className="Button-sc-1gypvbx-0 "
+  className="Button-sc-1gypvbx-0"
 >
   Test button
 </button>
@@ -10,7 +10,7 @@ exports[`<Button> can render without theme 1`] = `
 
 exports[`<Button> supports the as prop 1`] = `
 <a
-  className="Button-sc-1gypvbx-0 "
+  className="Button-sc-1gypvbx-0"
 >
   Test button
 </a>

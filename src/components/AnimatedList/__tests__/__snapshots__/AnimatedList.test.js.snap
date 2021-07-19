@@ -2,10 +2,10 @@
 
 exports[`<AnimatedList> can render without theme 1`] = `
 <ul
-  className="AnimatedList-sdziqv-1 "
+  className="AnimatedList-sc-sdziqv-1"
 >
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
     style={
       Object {
         "height": "auto",
@@ -18,7 +18,7 @@ exports[`<AnimatedList> can render without theme 1`] = `
     one
   </li>
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
     style={
       Object {
         "height": "auto",
@@ -31,7 +31,7 @@ exports[`<AnimatedList> can render without theme 1`] = `
     two
   </li>
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
     style={
       Object {
         "height": "auto",
@@ -48,20 +48,20 @@ exports[`<AnimatedList> can render without theme 1`] = `
 
 exports[`<AnimatedList> without Object.entries renders a static list when react-spring is not supported 1`] = `
 <ul
-  className="AnimatedList-sdziqv-1 "
+  className="AnimatedList-sc-sdziqv-1"
 >
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
   >
     one
   </li>
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
   >
     two
   </li>
   <li
-    className="AnimatedList__Item-sdziqv-0 "
+    className="AnimatedList__Item-sc-sdziqv-0"
   >
     three
   </li>

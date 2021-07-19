@@ -2,19 +2,19 @@
 
 exports[`<Toast> can render without theme 1`] = `
 <div
-  className="Toast-nim36i-0 "
+  className="Toast-sc-nim36i-0"
   role="status"
 >
   <div
-    className="Toast__Body-nim36i-4 "
+    className="Toast__Body-sc-nim36i-4"
   >
     Toast message
   </div>
   <div
-    className="Toast__Close-nim36i-3 "
+    className="Toast__Close-sc-nim36i-3"
   >
     <button
-      className="CloseButton-sqbalp-0 "
+      className="CloseButton-sc-sqbalp-0"
     />
   </div>
 </div>
@@ -22,7 +22,7 @@ exports[`<Toast> can render without theme 1`] = `
 
 exports[`<Toast> customizes the layout with a children render function 1`] = `
 <div
-  className="Toast-nim36i-0 "
+  className="Toast-sc-nim36i-0"
   role="status"
 >
   <p>
@@ -33,7 +33,7 @@ exports[`<Toast> customizes the layout with a children render function 1`] = `
 
 exports[`<Toast> customizes the layout with a children render node 1`] = `
 <div
-  className="Toast-nim36i-0 "
+  className="Toast-sc-nim36i-0"
   role="status"
 >
   <p>

@@ -2,15 +2,15 @@
 
 exports[`<MediaObject> can render without theme 1`] = `
 <div
-  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1 "
+  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1"
 >
   <div
-    className="MediaObject__Media-sc-12gs3hz-3 "
+    className="MediaObject__Media-sc-12gs3hz-3"
   >
     media
   </div>
   <div
-    className="MediaObject__Body-sc-12gs3hz-2 "
+    className="MediaObject__Body-sc-12gs3hz-2"
   >
     body
   </div>
@@ -19,7 +19,7 @@ exports[`<MediaObject> can render without theme 1`] = `
 
 exports[`<MediaObject> customizes the layout with renderLayout node 1`] = `
 <div
-  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1 "
+  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1"
 >
   <p>
     custom layout
@@ -29,7 +29,7 @@ exports[`<MediaObject> customizes the layout with renderLayout node 1`] = `
 
 exports[`<MediaObject> customizes the layout with renderLayout render function 1`] = `
 <div
-  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1 "
+  className="MediaObject__StyledMediaObject-sc-12gs3hz-0 MediaObject-sc-12gs3hz-1"
 >
   <p>
     custom layout
