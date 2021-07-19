@@ -25,3 +25,11 @@
 - `npm run build` will build the component for publishing to npm and also bundle the demo app.
 
 - `npm run clean` will delete built resources.
+
+## Releasing
+
+- Perform an `npm run build` command to prepare the package for releasing
+
+- Run `npm run release`, which leverages [standard-version](https://github.com/conventional-changelog/standard-version)
+
+- Standard version uses the [commit message](https://www.conventionalcommits.org/en/v1.0.0/) to generate the changelog updates for you.
