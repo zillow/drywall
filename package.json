@@ -47,7 +47,7 @@
     "@sinonjs/fake-timers": "^6.0.0",
     "babel-plugin-styled-components": "^1.10.7",
     "babel-preset-zillow": "^4.2.0",
-    "create-react-styleguide": "^5.2.0",
+    "create-react-styleguide": "^8.2.3",
     "eslint-plugin-jest": "^23.7.0",
     "eslint-plugin-zillow": "^3.5.1",
     "gh-pages": "^2.2.0",
